@@ -26,7 +26,7 @@ export default {
 }
 </script >
 
-<style style='stylus' scoped>
- swiper-img
+<style lang='stylus' scoped>
+ .swiper-img
    width: 100%
 </style>
