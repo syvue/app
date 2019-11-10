@@ -480,4 +480,104 @@ export default {
 ```
 * Home.vue
 
-### 
+#### 代码优化
+
+> src/assets/styles这个目录在项目中引用了多次，那么对于使用频率很高的目录我们就需要优化其使用流程，方便我们使用。首先我们打开bulid目录下的webpack.base.conf.js文件我们找到resolve下面的alias别名这一项，然后我们添加一项新的别名。
+
+``` javascript
+   resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': resolve('src'),
+      'styles': resolve('src/assets/styles')  
+      //新添加的别名styles用来替换src/assets/styles这一段目录
+    }
+  }
+
+```
+* 然后我们就可以修改一下我们原来的文件，用新别名替换原来的 
+
+> 在src/assets/styles下新建varibles.styl文件，然后打开varibles.styl文件。
+
+``` css
+$bgColor = #00bcd4
+```
+ * varibles.styl
+
+> 然后在header.vue样式表部分导入 varibles.styl,就可以使用$bgcolor变量 
+
+``` javascript
+<style lang='stylus' scoped>
+ @import '~styles/varibles.styl'
+ //导入样式需要注意格式 
+  .header
+    bgackgournd: $bgColor
+</style>
+```
+### 新建代码分支
+
+> 在正式的商业项目中，当开发一个新的功能模块时，都需要创建一个分支，当开完完成之后我们再将分支合并到主分支中。这个时候我们先打开github中我们的项目页面，点击Branch:Master然后创建分支。
+
+![](git02.jpg)
+
+> 我们创建index-swiper分支是在线上，然后我们需要将线上分支拉到我们本机上
+
+``` git 
+ git pull
+ # 我们先进入本地项目目录运行然后运行 git pull
+ From https://github.com/syvue/app
+ * [new branch]      index-swiper -> origin/index-swiper
+ #运行之后 我们就会看到我们新建 index-swiper分支
+
+ git checkout index-swiper
+ # 运行 git checkout index-swiper 我们就好会从master分支切换到index-swiper这个新建的分支上
+
+ git status 
+ #  git status  这个命令是查看查看当前git状态
+ 
+
+```
+* 切换分支之后我的编写的代码都会在新的index-swiper分支之上
+
+### 安装轮播图swiper插件
+
+> 我们打开(https://github.com/surmon-china/vue-awesome-swiper)[https://github.com/surmon-china/vue-awesome-swiper]这个地址查先看一下这个插件的readme说明文档。考虑到兼容性和稳定性的问题，我们采用安装2.6.7这个版本
+
+``` npm
+npm install vue-awesome-swiper@2.6.7 --save
+# 安装vue-awesome-swiper 2.6.7的版本
+```
+> 然后在main.js中引入vue-awesome-swiper 
+
+``` javascript
+import Vue from 'vue'
+import App from './App'
+import router from './router'
+import fastClick from 'fastclick'
+// 导入fastclick解决手机或浏览器可能的300毫秒延迟的问题
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+// 导入VueAwesomeSwiper 组件
+import './assets/styles/reset.css'
+// 重置所有样式
+import './assets/styles/border.css'
+import './assets/styles/iconfont.css'
+// 解决移动端1像素边框问题
+import 'swiper/dist/css/swiper.css'
+// 导入swiper样式表
+
+Vue.config.productionTip = false
+fastClick.attach(document.body)
+// 调用fastClick绑定到document.body上
+Vue.use(VueAwesomeSwiper)
+// 调用VueAwesomeSwiper
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  components: { App },
+  template: '<App/>'
+})
+
+```
+> 我们在pages/home/components下新建Swiper.vue文件
