@@ -713,3 +713,22 @@ export default {
 </style>
 
 ```
+
+> 完成之后我们先保存代码然后推送到我们的远程代码仓库
+
+``` Git
+  git add .
+  git commit -m 'swiper done'
+  git push
+
+```
+
+> 然后我们在将 index-swiper这个分支合并到master 分支
+
+``` Git
+  git checkout master
+  # 我们首先切换到master分支
+  git merge origin/index-swiper
+  # 将index-swiper分支先合并到本地master分支
+  
+```
