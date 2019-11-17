@@ -703,11 +703,13 @@ export default {
 <style lang='stylus' scoped>
   .wrapper >>> .swiper-pagination-bullet-active
     background: #fff
+    //实现.wrapper对.swiper-pagination-bullet-active的样式穿透
   .wrapper
     overflow: hidden
     width: 100%
     height: 0
     padding-bottom: 26.66%
+    // .wrapper实现按比例占位
     .swiper-img
       width: 100%
 </style>
@@ -730,5 +732,109 @@ export default {
   # 我们首先切换到master分支
   git merge origin/index-swiper
   # 将index-swiper分支先合并到本地master分支
-  
+  git push 
+  # 在将master分支的推送到远程仓库
 ```
+### 完成图标区域布局
+
+* 首先我们在github上创建一个新的 index-icons分支,然后我们要切换到index-icons这个分支上。
+
+``` git
+  git pull
+  # 创建完分支之后，我首先在本地拉取一下这个分支
+  git checkout index-icons
+  # 然后切换到index-icons这个分支开始开发
+```
+> 我们首先在components文件夹下面新建Icons.vue这个文件，然后并在Home.vue添加HomeIcons这个组件实现基本的布局
+
+``` javascript
+<template>
+   <div class='icons'>
+      <div class="icon">
+        <div class='icon-img'>
+          <img class="icon-img-content"  src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png" />
+        </div>
+        <p class="icons-desc">景点门票</p>
+      </div>
+
+      <div class="icon">
+          <div class='icon-img'>
+            <img class="icon-img-content"  src="http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png" />
+          </div>
+          <p class="icons-desc">一日游</p>
+      </div>
+     
+   </div>
+</template>
+
+<script>
+export default {
+  name: 'HomeIcons'
+}
+</script>
+
+<style lang='stylus' scoped>
+  .icons
+    overflow: hidden
+    height: 0
+    padding-bottom: 50%
+    background: #eee
+    .icon
+      position: relative
+      overflow: hidden
+      float: left
+      width: 25%
+      height: 0
+      padding-bottom: 25%
+      .icon-img
+        position: absolute
+        top: 0
+        left: 0
+        right: 0
+        bottom: .44rem
+        box-sizing: border-box
+        .icon-img-content
+          display: block
+          margin: 0 auto
+          height: 100%
+      .icons-desc
+        position: absolute
+        left: 0
+        right: 0
+        bottom: 0
+        height: .44rem
+        line-height: .44rem
+        text-align: center
+</style>
+```
+* Icons.vue
+    
+```  javascript
+<template>
+     <div>
+         <home-header></home-header>
+         <home-swiper></home-swiper>
+         <home-icons></home-icons>
+     </div>
+</template>
+
+<script>
+import HomeHeader from './components/Header'
+import HomeSwiper from './components/Swiper'
+import HomeIcons from './components/Icons'
+//添加 HomeIcons组件
+export default {
+  name: 'Home',
+  components: {
+    HomeHeader,
+    HomeSwiper,
+    HomeIcons
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
+```
+* Home.vue
