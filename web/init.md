@@ -747,6 +747,36 @@ export default {
 ```
 > 我们首先在components文件夹下面新建Icons.vue这个文件，然后并在Home.vue添加HomeIcons这个组件实现基本的布局
 
+```  javascript
+<template>
+     <div>
+         <home-header></home-header>
+         <home-swiper></home-swiper>
+         <home-icons></home-icons>
+     </div>
+</template>
+
+<script>
+import HomeHeader from './components/Header'
+import HomeSwiper from './components/Swiper'
+import HomeIcons from './components/Icons'
+//添加 HomeIcons组件
+export default {
+  name: 'Home',
+  components: {
+    HomeHeader,
+    HomeSwiper,
+    HomeIcons
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
+```
+* Home.vue
+
 ``` javascript
 <template>
    <div class='icons'>
@@ -809,32 +839,3 @@ export default {
 ```
 * Icons.vue
     
-```  javascript
-<template>
-     <div>
-         <home-header></home-header>
-         <home-swiper></home-swiper>
-         <home-icons></home-icons>
-     </div>
-</template>
-
-<script>
-import HomeHeader from './components/Header'
-import HomeSwiper from './components/Swiper'
-import HomeIcons from './components/Icons'
-//添加 HomeIcons组件
-export default {
-  name: 'Home',
-  components: {
-    HomeHeader,
-    HomeSwiper,
-    HomeIcons
-  }
-}
-</script>
-
-<style scoped>
-
-</style>
-```
-* Home.vue
