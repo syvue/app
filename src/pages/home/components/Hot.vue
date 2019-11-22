@@ -7,67 +7,13 @@
         </div>
       <div class="wrapper">
           <swiper :options='swiperOption'>
-              <swiper-slide>
+              <swiper-slide v-for='item of hotList' :key='item.id'>
                   <div class="hot-img">
-                    <img class="hot-img-content" src="http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg" />
+                    <img class="hot-img-content" :src="item.imgUrl" />
                   </div>  
-                    <p class="desc">上海迪士尼乐园</p>
-                    <p class="price">¥352起</p>
+                    <p class="desc">{{item.desc}}</p>
+                    <p class="price">{{item.price}}<span>起</span></p>
               </swiper-slide>
-              <swiper-slide>
-                   <div class="hot-img">
-                    <img class="hot-img-content" src="http://img1.qunarzz.com/sight/p0/1811/e4/e4b9b471d2afc473a3.img.jpg_250x250_963fe222.jpg" />
-                   </div>
-                    <p class="desc">上海迪士尼乐园</p>
-                    <p class="price">¥352起</p>
-                    
-              </swiper-slide>
-              <swiper-slide>
-                  <div class="hot-img">
-                    <img class="hot-img-content" src="http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg" />
-                  </div>  
-                    <p class="desc">上海迪士尼乐园</p>
-                    <p class="price">¥352起</p>
-              </swiper-slide>
-              <swiper-slide>
-                   <div class="hot-img">
-                    <img class="hot-img-content" src="http://img1.qunarzz.com/sight/p0/1811/e4/e4b9b471d2afc473a3.img.jpg_250x250_963fe222.jpg" />
-                   </div>
-                    <p class="desc">上海迪士尼乐园</p>
-                    <p class="price">¥352起</p>
-                    
-              </swiper-slide>
-              <swiper-slide>
-                  <div class="hot-img">
-                    <img class="hot-img-content" src="http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg" />
-                  </div>  
-                    <p class="desc">上海迪士尼乐园</p>
-                    <p class="price">¥352起</p>
-              </swiper-slide>
-              <swiper-slide>
-                   <div class="hot-img">
-                    <img class="hot-img-content" src="http://img1.qunarzz.com/sight/p0/1811/e4/e4b9b471d2afc473a3.img.jpg_250x250_963fe222.jpg" />
-                   </div>
-                    <p class="desc">上海迪士尼乐园</p>
-                    <p class="price">¥352起</p>
-                    
-              </swiper-slide>
-              <swiper-slide>
-                  <div class="hot-img">
-                    <img class="hot-img-content" src="http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg" />
-                  </div>  
-                    <p class="desc">上海迪士尼乐园</p>
-                    <p class="price">¥352起</p>
-              </swiper-slide>
-              <swiper-slide>
-                   <div class="hot-img">
-                    <img class="hot-img-content" src="http://img1.qunarzz.com/sight/p0/1811/e4/e4b9b471d2afc473a3.img.jpg_250x250_963fe222.jpg" />
-                   </div>
-                    <p class="desc">上海迪士尼乐园</p>
-                    <p class="price">¥352起</p>
-                    
-              </swiper-slide>
-              
           </swiper>
       </div>
   </div>
@@ -79,10 +25,65 @@ export default {
   data () {
     return {
       swiperOption: {
-        slidesPerView : 3.4,
-        centeredSlides : false,
-        offsetPxBefore : 100
-      }
+        slidesPerView : 3.5,
+        centeredSlides : false
+      },
+      hotList:[{
+        id:'001',
+        imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg',
+        desc: '上海迪士尼乐园',
+        price: '¥352'
+      }, {
+        id:'002',
+        imgUrl: 'http://img1.qunarzz.com/sight/p0/1811/e4/e4b9b471d2afc473a3.img.jpg_250x250_963fe222.jpg',
+        desc: '上海欢乐谷',
+        price: '¥159'
+      }, {
+        id:'003',
+        imgUrl: 'http://img1.qunarzz.com/tuan/team2/1507/2c/83e0e0e7ae082a.jpg_250x250_87692c41.jpg',
+        desc: '东方明珠',
+        price: '¥80'
+      }, {
+        id:'004',
+        imgUrl: 'http://img1.qunarzz.com/sight/p0/1906/19/19b7939928a0200da3.img.jpg_250x250_170cb921.jpg',
+        desc: '上海海昌海洋公园',
+        price: '¥139'
+      }, {
+        id:'005',
+        imgUrl: 'http://img1.qunarzz.com/sight/p0/1803/26/2645c1b2ee526285a3.water.jpg_250x250_c9ab8185.jpg',
+        desc: '黄浦江游览（十六铺码头）',
+        price: '¥80'
+      }, {
+        id:'006',
+        imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg',
+        desc: '上海迪士尼乐园',
+        price: '¥352'
+      }, {
+        id:'007',
+        imgUrl: 'http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg',
+        desc: '上海迪士尼乐园',
+        price: '¥352'
+      }, {
+        id:'008',
+        imgUrl: 'http://img1.qunarzz.com/sight/p0/1811/e4/e4b9b471d2afc473a3.img.jpg_250x250_963fe222.jpg',
+        desc: '上海欢乐谷',
+        price: '¥159'
+      }, {
+        id:'009',
+        imgUrl: 'http://img1.qunarzz.com/tuan/team2/1507/2c/83e0e0e7ae082a.jpg_250x250_87692c41.jpg',
+        desc: '东方明珠',
+        price: '¥80'
+      }, {
+        id:'010',
+        imgUrl: 'http://img1.qunarzz.com/sight/p0/1906/19/19b7939928a0200da3.img.jpg_250x250_170cb921.jpg',
+        desc: '上海海昌海洋公园',
+        price: '¥139'
+      }, {
+        id:'011',
+        imgUrl: 'http://img1.qunarzz.com/sight/p0/1803/26/2645c1b2ee526285a3.water.jpg_250x250_c9ab8185.jpg',
+        desc: '黄浦江游览（十六铺码头）',
+        price: '¥80'
+      }]
     }
 
     }
@@ -91,9 +92,11 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+@import '~styles/varibles.styl'
   .title
     position relative
-    padding .22rem .22rem
+    padding .2rem
+    padding-bottom -.1rem
     .title-left
       font-size .32rem;
       line-height .44rem
@@ -119,6 +122,7 @@ export default {
     .hot-img
       overflow hidden
       height 2.2rem
+      margin-top -.2rem
       .hot-img-content
         margin .2rem
         width: 100%
@@ -128,7 +132,11 @@ export default {
       margin-top .12rem
       line-height: .32rem
       color #212121
+      ellipsis()
     .price
       text-align center
       color #ff8300
+      span
+        color #212121
+        font-size .24rem
 </style>
