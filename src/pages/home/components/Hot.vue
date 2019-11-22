@@ -121,10 +121,10 @@ export default {
     width: 100%
     .hot-img
       overflow hidden
-      height 2.2rem
+      height 24%
       margin-top -.2rem
       .hot-img-content
-        margin .2rem
+        margin .15rem
         width: 100%
     .desc
       text-align center

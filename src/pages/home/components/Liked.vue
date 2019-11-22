@@ -9,7 +9,7 @@
         <img class="item-img" src="http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg" >
         <div class="item-info">
           <p class="item-title">上海迪士尼乐园</p>
-          <p class="item-comment">277442条评论</p>
+          <p class="item-comment">&#xe60c;&#xe60c;&#xe60c;&#xe60c;277442条评论</p>
           <p class="item-price">394</p>
           <p class="item-desc">全球最大的迪士尼城堡</p>
         </div>
@@ -45,7 +45,7 @@
         <img class="item-img" src="http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg" >
         <div class="item-info">
           <p class="item-title">上海迪士尼乐园</p>
-          <p class="item-comment">277442条评论</p>
+          <p class="item-comment">&#xe60c;&#xe60c;&#xe60c;&#xe60c;&#xe60c;277442条评论</p>
           <p class="item-price">394</p>
           <p class="item-desc">全球最大的迪士尼城堡</p>
         </div>
@@ -89,4 +89,9 @@ export default {
       padding: .1rem
       margin-top .3rem
       min-width: 0
+      .item-title
+        height: .44rem
+        color: #212121
+        font-size: .32rem
+        line-height: .44rem
 </style>
