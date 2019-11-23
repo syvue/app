@@ -263,8 +263,8 @@ export default new Router({
 
 * webpack 项目打包工具 -->
 
-### 项目初始化
 
+### 项目初始化
 
 #### 导入依赖文件
 ![](init01.jpg)
@@ -780,13 +780,14 @@ export default {
 ``` javascript
 <template>
    <div class='icons'>
+    <!-- icons是最外层-->
       <div class="icon">
         <div class='icon-img'>
           <img class="icon-img-content"  src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png" />
         </div>
         <p class="icons-desc">景点门票</p>
       </div>
-
+      <!-- icon层代表一个图标层-->
       <div class="icon">
           <div class='icon-img'>
             <img class="icon-img-content"  src="http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png" />
@@ -809,6 +810,7 @@ export default {
     height: 0
     padding-bottom: 50%
     background: #eee
+    //icons 层样式
     .icon
       position: relative
       overflow: hidden
@@ -816,6 +818,7 @@ export default {
       width: 25%
       height: 0
       padding-bottom: 25%
+      //单个icon层样式
       .icon-img
         position: absolute
         top: 0
