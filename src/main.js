@@ -9,7 +9,8 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import './assets/styles/reset.css'
 // 重置所有样式
 import './assets/styles/border.css'
-import './assets/styles/iconfont.css'
+import 'styles/iconfont.css'
+
 // 解决移动端1像素边框问题
 import 'swiper/dist/css/swiper.css'
 // 导入swiper样式表
