@@ -10,7 +10,16 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      //指定访问本地 localhost:8080下的以/api开头的路径时会自动替换成/static/mock目录
+      //这个转发功能是webpack-server提供的
+      '/api':{
+        target:'http://localhost:8080',
+        pathRewrite:{
+          '^/api':'/static/mock'
+        }
+      }
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

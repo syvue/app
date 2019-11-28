@@ -11,7 +11,6 @@
             <p class="item-desc">{{item.desc}}</p>
           </div>
         </li>
-        
     </ul> 
   </div>
 </template>
