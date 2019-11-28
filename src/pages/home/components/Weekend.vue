@@ -2,22 +2,13 @@
   <div>
     <div class="title">周末去哪儿</div>
     <ul>
-        <li class="item border-bottom">
+        <li class="item border-bottom" v-for="item of itemList" :key="item.id">
           <div class="item-img-wrapper">
-            <img class="item-img" src="http://img1.qunarzz.com/sight/source/1511/ea/7f43191b747bb9.jpg_r_640x214_f58e829d.jpg" >
+            <img class="item-img" :src="item.imgUrl" >
           </div>
           <div class="item-info">
-            <p class="item-title">上海泡汤圣地</p>
-            <p class="item-desc">上海的朋友总会问，哪里可以泡温泉，哪里的温泉好呢？这里有最好最全的上海温泉</p>
-          </div>
-        </li>
-        <li class="item border-bottom">
-          <div class="item-img-wrapper">
-            <img class="item-img" src="http://img1.qunarzz.com/sight/source/1511/ea/7f43191b747bb9.jpg_r_640x214_f58e829d.jpg" >
-          </div>
-          <div class="item-info">
-            <p class="item-title">上海泡汤圣地</p>
-            <p class="item-desc">上海的朋友总会问，哪里可以泡温泉，哪里的温泉好呢？这里有最好最全的上海温泉</p>
+            <p class="item-title">{{item.title}}</p>
+            <p class="item-desc">{{item.desc}}</p>
           </div>
         </li>
         
@@ -27,7 +18,22 @@
 
 <script>
 export default {
-  name: 'Weekend'
+  name: 'Weekend',
+  data () {
+    return {
+      itemList:[{
+        id:'001',
+        imgUrl:'http://img1.qunarzz.com/sight/source/1511/ea/7f43191b747bb9.jpg_r_640x214_f58e829d.jpg',
+        title:'上海泡汤圣地',
+        desc:'上海的朋友总会问，哪里可以泡温泉，哪里的温泉好呢？这里有最好最全的上海温泉'
+      },{
+        id:'002',
+        imgUrl:'http://img1.qunarzz.com/sight/source/1511/ea/7f43191b747bb9.jpg_r_640x214_f58e829d.jpg',
+        title:'上海泡汤圣地',
+        desc:'上海的朋友总会问，哪里可以泡温泉，哪里的温泉好呢？这里有最好最全的上海温泉'
+      }]
+    }
+  }
 }
 </script>
 
