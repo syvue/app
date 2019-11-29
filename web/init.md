@@ -703,11 +703,13 @@ export default {
 <style lang='stylus' scoped>
   .wrapper >>> .swiper-pagination-bullet-active
     background: #fff
+    //实现.wrapper对.swiper-pagination-bullet-active的样式穿透
   .wrapper
     overflow: hidden
     width: 100%
     height: 0
     padding-bottom: 26.66%
+    // .wrapper实现按比例占位
     .swiper-img
       width: 100%
 </style>
@@ -730,9 +732,15 @@ export default {
   # 我们首先切换到master分支
   git merge origin/index-swiper
   # 将index-swiper分支先合并到本地master分支
+<<<<<<< HEAD
   
 ```
 
+=======
+  git push 
+  # 在将master分支的推送到远程仓库
+```
+>>>>>>> origin/index-icons
 ### 完成图标区域布局
 
 * 首先我们在github上创建一个新的 index-icons分支,然后我们要切换到index-icons这个分支上。
@@ -745,8 +753,12 @@ export default {
 ```
 > 我们首先在components文件夹下面新建Icons.vue这个文件，然后并在Home.vue添加HomeIcons这个组件实现基本的布局
 
+<<<<<<< HEAD
 
 ``` javascript
+=======
+```  javascript
+>>>>>>> origin/index-icons
 <template>
      <div>
          <home-header></home-header>
@@ -773,6 +785,7 @@ export default {
 <style scoped>
 
 </style>
+<<<<<<< HEAD
 
 ```
 
@@ -783,13 +796,25 @@ export default {
 <template>
    <div class='icons'>
     <!-- icons是最外层-->
+=======
+```
+* Home.vue
+
+``` javascript
+<template>
+   <div class='icons'>
+>>>>>>> origin/index-icons
       <div class="icon">
         <div class='icon-img'>
           <img class="icon-img-content"  src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png" />
         </div>
         <p class="icons-desc">景点门票</p>
       </div>
+<<<<<<< HEAD
       <!-- icon层代表一个图标层-->
+=======
+
+>>>>>>> origin/index-icons
       <div class="icon">
           <div class='icon-img'>
             <img class="icon-img-content"  src="http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png" />
@@ -812,7 +837,10 @@ export default {
     height: 0
     padding-bottom: 50%
     background: #eee
+<<<<<<< HEAD
     //icons 层样式
+=======
+>>>>>>> origin/index-icons
     .icon
       position: relative
       overflow: hidden
@@ -820,7 +848,10 @@ export default {
       width: 25%
       height: 0
       padding-bottom: 25%
+<<<<<<< HEAD
       //单个icon层样式
+=======
+>>>>>>> origin/index-icons
       .icon-img
         position: absolute
         top: 0
@@ -841,6 +872,7 @@ export default {
         line-height: .44rem
         text-align: center
 </style>
+<<<<<<< HEAD
 
 ```
 
@@ -987,3 +1019,8 @@ ellipsis()
 * varibles.styl
 
 ### 
+=======
+```
+* Icons.vue
+    
+>>>>>>> origin/index-icons
