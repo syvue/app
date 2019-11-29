@@ -32,13 +32,13 @@ export default {
   },
   data () {
     return {
-      // data初始化数据
-      city: '',
+      city:'',
       swiperList: [],
       iconList: [],
       hotList: [],
       likeList: [],
       weekendList: []
+    }
   },
   // 在methods中定义函数getHomeInfo()
   methods: {
@@ -62,7 +62,7 @@ export default {
           this.likeList = data.likeList
           this.weekendList = data.weekendList
         }
-      console.log(res)
+      // console.log(res)
       // getHomeInfoSucc会将获取成功的数据打印
     }
   },
@@ -73,8 +73,9 @@ export default {
 
   }
 }
+
 </script>
 
-<style scoped>
+<style lang="stylus" scoped>
 
 </style>
