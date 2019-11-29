@@ -2,6 +2,7 @@
   "ret": true,
   "comment":"ret为true表示服务器正确相应了请求",
   "data": {
+    "city":"北京",
     "swiperList":[{
       "id":"001",
       "imgUrl":"http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/201910/c8762210baff5ade1a3b2fe0ab914992.png_750x200_9bbb2f51.png"

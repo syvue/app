@@ -8,7 +8,8 @@
                  输入城市/景点/游玩主题
         </div>
         <div class="header-right">
-            城市
+            {{this.city}}
+            <!-- 传入城市的名称 -->
              <span class="iconfont arrow-icon">&#xe6aa;</span>
         </div>
      </div>
@@ -16,7 +17,11 @@
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+    city: String
+    // 通过props指定接受数据的类型，city必须是String字符串类型
+  }
 }
 </script>
 
