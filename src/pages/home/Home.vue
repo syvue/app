@@ -1,6 +1,7 @@
 <template>
      <div>
          <home-header></home-header>
+         <home-icons></home-icons>
          <home-swiper></home-swiper>
          <home-hot></home-hot>
          <home-liked></home-liked>
@@ -10,6 +11,7 @@
 
 <script>
 import HomeHeader from './components/Header'
+import HomeIcons from './components/Icons'
 import HomeSwiper from './components/Swiper'
 import HomeHot from './components/Hot'
 import HomeLiked from './components/Liked'
@@ -23,7 +25,8 @@ export default {
     HomeSwiper,
     HomeHot,
     HomeLiked,
-    HomeWeekend
+    HomeWeekend,
+    HomeIcons
   },
   // 在methods中定义函数getHomeInfo()
   methods: {
@@ -43,6 +46,8 @@ export default {
   mounted () {
     //在生命周期中执行getHomeInfo函数
     this.getHomeInfo()
+    HomeWeekend,
+    HomeIcons
   }
 }
 </script>

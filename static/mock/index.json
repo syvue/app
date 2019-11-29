@@ -52,32 +52,56 @@
         "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/a9/ffc620dbda9b9c02.png",
         "desc": "一日游"
       }],
-    "recommendList": [{
-        "id": "0001",
-        "imgUrl": "http://img1.qunarzz.com/sight/p0/1409/19/adca619faaab0898245dc4ec482b5722.jpg_140x140_80f63803.jpg",
-        "title": "故宫",
-        "desc": "东方宫殿建筑代表，世界宫殿建筑典范"
+      "likeList": [{
+        "id": "001",
+        "imgUrl": "http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg",
+        "title": "上海迪士尼乐园",
+        "star":"&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;",
+        "comment":"277442条评论",
+        "price": "394",
+        "desc": "全球最大的迪士尼城堡"
       }, {
-        "id": "0002",
-        "imgUrl": "http://img1.qunarzz.com/sight/p0/1511/d2/d2aec2dfc5aa771290.water.jpg_140x140_abb362a7.jpg",
-        "title": "南山滑雪场",
-        "desc": "北京专业级滑雪圣地"
+        "id": "002",
+        "imgUrl": "http://img1.qunarzz.com/tuan/team2/1507/2c/83e0e0e7ae082a.jpg_200x200_6d7378b2.jpg",
+        "title": "东方明珠",
+        "star":"&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;",
+        "comment":"87877条评论",
+        "price": "80",
+        "desc": "259米透明悬空观光廊了解一下~"
       }, {
-        "id": "0003",
-        "imgUrl": "http://img1.qunarzz.com/sight/p0/1501/f4/f467729126949c3a.water.jpg_140x140_ef235b1c.jpg",
-        "title": "天安门广场",
-        "desc": "我爱北京天安门，天安门上太阳升"
+        "id": "003",
+        "imgUrl": "http://img1.qunarzz.com/sight/p0/1906/19/19b7939928a0200da3.img.jpg_200x200_6879c7f7.jpg",
+        "title": "上海海昌海洋公园",
+        "star":"&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;",
+        "comment":"25826条评论",
+        "price": "139",
+        "desc": "全球最大的迪士尼城堡"
       }, {
-        "id": "0004",
-        "imgUrl": "http://img1.qunarzz.com/sight/p0/1501/40/40b2b6c951b28fdd.water.jpg_140x140_1c863e5c.jpg",
-        "title": "水立方",
-        "desc": "中国的荣耀，阳光下的晶莹水滴"
+        "id": "004",
+        "imgUrl": "http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg",
+        "title": "上海迪士尼乐园",
+        "star":"&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;",
+        "comment":"277442条评论",
+        "price": "394",
+        "desc": "全球最大的迪士尼城堡"
+      },  {
+        "id": "005",
+        "imgUrl": "http://img1.qunarzz.com/tuan/team2/1507/2c/83e0e0e7ae082a.jpg_200x200_6d7378b2.jpg",
+        "title": "东方明珠",
+        "star":"&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;",
+        "comment":"87877条评论",
+        "price": "80",
+        "desc": "259米透明悬空观光廊了解一下~"
       }, {
-        "id": "0005",
-        "imgUrl": "http://img1.qunarzz.com/sight/p0/201308/23/b283071686e64dfec8d65eac.jpg_140x140_8c5a7c49.jpg",
-        "title": "温都水城养生馆",
-        "desc": "各种亚热带植物掩映其间仿佛置身热带雨林"
-      }],
+        "id": "006",
+        "imgUrl": "http://img1.qunarzz.com/sight/p0/1906/19/19b7939928a0200da3.img.jpg_200x200_6879c7f7.jpg",
+        "title": "上海海昌海洋公园",
+        "star":"&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;",
+        "comment":"25826条评论",
+        "price": "139",
+        "desc": "全球最大的迪士尼城堡"
+      }
+      ],
     "weekendList": [{
         "id": "0001",
         "imgUrl": "http://img1.qunarzz.com/sight/source/1510/6e/1ea71e2f04e.jpg_r_640x214_aa6f091d.jpg",

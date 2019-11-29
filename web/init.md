@@ -703,11 +703,13 @@ export default {
 <style lang='stylus' scoped>
   .wrapper >>> .swiper-pagination-bullet-active
     background: #fff
+    //实现.wrapper对.swiper-pagination-bullet-active的样式穿透
   .wrapper
     overflow: hidden
     width: 100%
     height: 0
     padding-bottom: 26.66%
+    // .wrapper实现按比例占位
     .swiper-img
       width: 100%
 </style>
@@ -733,6 +735,9 @@ export default {
   
 ```
 
+  git push 
+  # 在将master分支的推送到远程仓库
+```
 ### 完成图标区域布局
 
 * 首先我们在github上创建一个新的 index-icons分支,然后我们要切换到index-icons这个分支上。
@@ -747,6 +752,7 @@ export default {
 
 
 ``` javascript
+```  javascript
 <template>
      <div>
          <home-header></home-header>
@@ -783,6 +789,12 @@ export default {
 <template>
    <div class='icons'>
     <!-- icons是最外层-->
+```
+* Home.vue
+
+``` javascript
+<template>
+   <div class='icons'>
       <div class="icon">
         <div class='icon-img'>
           <img class="icon-img-content"  src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png" />
@@ -790,6 +802,7 @@ export default {
         <p class="icons-desc">景点门票</p>
       </div>
       <!-- icon层代表一个图标层-->
+
       <div class="icon">
           <div class='icon-img'>
             <img class="icon-img-content"  src="http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png" />
@@ -820,7 +833,10 @@ export default {
       width: 25%
       height: 0
       padding-bottom: 25%
+<<<<<<< HEAD
       //单个icon层样式
+=======
+>>>>>>> origin/index-icons
       .icon-img
         position: absolute
         top: 0
@@ -987,3 +1003,6 @@ ellipsis()
 * varibles.styl
 
 ### 
+```
+* Icons.vue
+    
