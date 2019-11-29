@@ -46,8 +46,7 @@ export default {
   mounted () {
     //在生命周期中执行getHomeInfo函数
     this.getHomeInfo()
-    HomeWeekend,
-    HomeIcons
+
   }
 }
 </script>
