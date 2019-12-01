@@ -1132,7 +1132,7 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
   <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">return</span> <span class="token punctuation">{</span>
       swiperOption<span class="token punctuation">:</span> <span class="token punctuation">{</span>
-        <span class="token comment">// autoplay&#x81EA;&#x52A8;&#x64AD;&#x653E;&#x9664;&#x4E86;&#x6709;true&#x548C;false&#x503C;&#x4EE5;&#x5916;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6307;&#x5B9A;&#x8F6E;&#x64AD;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694; &#x4F8B;&#x5982; autoplay: 5000 </span>
+        <span class="token comment">// autoplay&#x81EA;&#x52A8;&#x64AD;&#x653E;&#x9664;&#x4E86;&#x6709;true&#x548C;false&#x503C;&#x4EE5;&#x5916;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6307;&#x5B9A;&#x8F6E;&#x64AD;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694; &#x4F8B;&#x5982;autoplay: 5000</span>
         autoplay<span class="token punctuation">:</span> <span class="token boolean">false</span>
       <span class="token punctuation">}</span><span class="token punctuation">,</span>
       iconList<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
@@ -1239,6 +1239,380 @@ Vue<span class="token punctuation">.</span><span class="token function">use</spa
 
 </pre><ul>
 <li>varibles.styl</li>
+</ul>
+<h3 class="mume-header" id="%E7%83%AD%E6%A6%9C%E5%8C%BA%E5%9F%9F%E5%AE%9E%E7%8E%B0">&#x70ED;&#x699C;&#x533A;&#x57DF;&#x5B9E;&#x73B0;</h3>
+
+<ul>
+<li>&#x9996;&#x5148;&#x5728;&#x7EBF;&#x4E0A;&#x4ED3;&#x5E93;Github&#x4E2D;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x5206;&#x652F;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x672C;&#x5730;&#x62C9;&#x53D6;&#x5E76;&#x5207;&#x6362;&#x65B0;&#x7684;index-Hot&#x5206;&#x652F;&#x3002;&#x518D;&#x5728;components&#x76EE;&#x5F55;&#x4E0B;&#x521B;&#x5EFA;Hot.vue&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x5229;&#x7528;swiper&#x7EC4;&#x4EF6;&#x5B9E;&#x73B0;&#x6211;&#x4EEC;&#x8981;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x3002;</li>
+</ul>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;title&quot;</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>img <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;title-img&quot;</span> src<span class="token operator">=</span><span class="token string">&quot;http://img1.qunarzz.com/piao/fusion/1711/16/bfbb9874e8f11402.png&quot;</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>span <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&apos;title-left&apos;</span><span class="token operator">&gt;</span>&#x672C;&#x5468;&#x70ED;&#x95E8;&#x699C;&#x5355;<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>span <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;title-right&quot;</span><span class="token operator">&gt;</span>&#x5168;&#x90E8;&#x699C;&#x5355; <span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;wrapper&quot;</span><span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>swiper <span class="token punctuation">:</span>options<span class="token operator">=</span><span class="token string">&apos;swiperOption&apos;</span><span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span>swiper<span class="token operator">-</span>slide v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">&apos;item of hotList&apos;</span> <span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">&apos;item.id&apos;</span><span class="token operator">&gt;</span>
+                  <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;hot-img&quot;</span><span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>img <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;hot-img-content&quot;</span> <span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">&quot;item.imgUrl&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+                  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>  
+                    <span class="token operator">&lt;</span>p <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;desc&quot;</span><span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>desc<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+                    <span class="token operator">&lt;</span>p <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;price&quot;</span><span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>price<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span>span<span class="token operator">&gt;</span>&#x8D77;<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+              <span class="token operator">&lt;</span><span class="token operator">/</span>swiper<span class="token operator">-</span>slide<span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>swiper<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span><span class="token string">&apos;HomeHot&apos;</span><span class="token punctuation">,</span>
+  <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      swiperOption<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        slidesPerView <span class="token punctuation">:</span> <span class="token number">3.5</span><span class="token punctuation">,</span>
+        <span class="token comment">//&#x8BBE;&#x7F6E;slider&#x5BB9;&#x5668;&#x80FD;&#x591F;&#x540C;&#x65F6;&#x663E;&#x793A;&#x7684;slides&#x6570;&#x91CF;(carousel&#x6A21;&#x5F0F;)&#x3002;</span>
+        centeredSlides <span class="token punctuation">:</span> <span class="token boolean">false</span>
+        <span class="token comment">//&#x9ED8;&#x8BA4;&#x72B6;&#x6001;&#x4E0B;&#x6D3B;&#x52A8;&#x5757;&#x5C45;&#x5DE6;&#xFF0C;&#x8BBE;&#x5B9A;&#x4E3A;true&#x65F6;&#xFF0C;&#x6D3B;&#x52A8;&#x5757;&#x4F1A;&#x5C45;&#x4E2D;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      hotList<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span><span class="token string">&apos;001&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;&#x4E0A;&#x6D77;&#x8FEA;&#x58EB;&#x5C3C;&#x4E50;&#x56ED;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;&#xA5;352&apos;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span><span class="token string">&apos;002&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/sight/p0/1811/e4/e4b9b471d2afc473a3.img.jpg_250x250_963fe222.jpg&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;&#x4E0A;&#x6D77;&#x6B22;&#x4E50;&#x8C37;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;&#xA5;159&apos;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span><span class="token string">&apos;003&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/tuan/team2/1507/2c/83e0e0e7ae082a.jpg_250x250_87692c41.jpg&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;&#x4E1C;&#x65B9;&#x660E;&#x73E0;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;&#xA5;80&apos;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span><span class="token string">&apos;004&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/sight/p0/1906/19/19b7939928a0200da3.img.jpg_250x250_170cb921.jpg&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;&#x4E0A;&#x6D77;&#x6D77;&#x660C;&#x6D77;&#x6D0B;&#x516C;&#x56ED;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;&#xA5;139&apos;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span><span class="token string">&apos;005&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/sight/p0/1803/26/2645c1b2ee526285a3.water.jpg_250x250_c9ab8185.jpg&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;&#x9EC4;&#x6D66;&#x6C5F;&#x6E38;&#x89C8;&#xFF08;&#x5341;&#x516D;&#x94FA;&#x7801;&#x5934;&#xFF09;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;&#xA5;80&apos;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span><span class="token string">&apos;006&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;&#x4E0A;&#x6D77;&#x8FEA;&#x58EB;&#x5C3C;&#x4E50;&#x56ED;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;&#xA5;352&apos;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span><span class="token string">&apos;007&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_250x250_57ac4faa.jpg&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;&#x4E0A;&#x6D77;&#x8FEA;&#x58EB;&#x5C3C;&#x4E50;&#x56ED;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;&#xA5;352&apos;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span><span class="token string">&apos;008&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/sight/p0/1811/e4/e4b9b471d2afc473a3.img.jpg_250x250_963fe222.jpg&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;&#x4E0A;&#x6D77;&#x6B22;&#x4E50;&#x8C37;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;&#xA5;159&apos;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span><span class="token string">&apos;009&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/tuan/team2/1507/2c/83e0e0e7ae082a.jpg_250x250_87692c41.jpg&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;&#x4E1C;&#x65B9;&#x660E;&#x73E0;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;&#xA5;80&apos;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span><span class="token string">&apos;010&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/sight/p0/1906/19/19b7939928a0200da3.img.jpg_250x250_170cb921.jpg&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;&#x4E0A;&#x6D77;&#x6D77;&#x660C;&#x6D77;&#x6D0B;&#x516C;&#x56ED;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;&#xA5;139&apos;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span><span class="token string">&apos;011&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/sight/p0/1803/26/2645c1b2ee526285a3.water.jpg_250x250_c9ab8185.jpg&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;&#x9EC4;&#x6D66;&#x6C5F;&#x6E38;&#x89C8;&#xFF08;&#x5341;&#x516D;&#x94FA;&#x7801;&#x5934;&#xFF09;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;&#xA5;80&apos;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>style lang<span class="token operator">=</span><span class="token string">&quot;stylus&quot;</span> scoped<span class="token operator">&gt;</span>
+@<span class="token keyword">import</span> <span class="token string">&apos;~styles/varibles.styl&apos;</span>
+  <span class="token punctuation">.</span>title
+    position relative
+    padding <span class="token number">.2</span>rem
+    padding<span class="token operator">-</span>bottom <span class="token operator">-</span><span class="token number">.1</span>rem
+    <span class="token punctuation">.</span>title<span class="token operator">-</span>left
+      font<span class="token operator">-</span>size <span class="token number">.32</span>rem<span class="token punctuation">;</span>
+      line<span class="token operator">-</span>height <span class="token number">.44</span>rem
+    <span class="token punctuation">.</span>title<span class="token operator">-</span>img
+      display<span class="token punctuation">:</span> inline<span class="token operator">-</span>block<span class="token punctuation">;</span>
+      overflow<span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+      width<span class="token punctuation">:</span> <span class="token number">.3</span>rem<span class="token punctuation">;</span>
+      height<span class="token punctuation">:</span> <span class="token number">.3</span>rem<span class="token punctuation">;</span>
+      vertical<span class="token operator">-</span>align<span class="token punctuation">:</span> top<span class="token punctuation">;</span>
+    <span class="token punctuation">.</span>title<span class="token operator">-</span>right
+      float right
+      color<span class="token punctuation">:</span> #<span class="token number">616161</span><span class="token punctuation">;</span>
+      font<span class="token operator">-</span>size<span class="token punctuation">:</span> <span class="token number">.24</span>rem<span class="token punctuation">;</span>
+      line<span class="token operator">-</span>height<span class="token punctuation">:</span> <span class="token number">.28</span>rem<span class="token punctuation">;</span>
+      position<span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+      top<span class="token punctuation">:</span> <span class="token number">.36</span>rem<span class="token punctuation">;</span>
+      right<span class="token punctuation">:</span> <span class="token number">.32</span>rem<span class="token punctuation">;</span>
+  <span class="token punctuation">.</span>wrapper
+    height <span class="token number">0</span>
+    padding<span class="token operator">-</span>bottom <span class="token number">40</span><span class="token operator">%</span>
+    overflow hidden
+    width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span>
+    <span class="token punctuation">.</span>hot<span class="token operator">-</span>img
+      overflow hidden
+      height <span class="token number">24</span><span class="token operator">%</span>
+      margin<span class="token operator">-</span>top <span class="token operator">-</span><span class="token number">.2</span>rem
+      <span class="token punctuation">.</span>hot<span class="token operator">-</span>img<span class="token operator">-</span>content
+        margin <span class="token number">.15</span>rem
+        width<span class="token punctuation">:</span> <span class="token number">100</span><span class="token operator">%</span>
+    <span class="token punctuation">.</span>desc
+      text<span class="token operator">-</span>align center
+      font<span class="token operator">-</span>size <span class="token number">.24</span>rem
+      margin<span class="token operator">-</span>top <span class="token number">.12</span>rem
+      line<span class="token operator">-</span>height<span class="token punctuation">:</span> <span class="token number">.32</span>rem
+      color #<span class="token number">212121</span>
+      <span class="token function">ellipsis</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span>price
+      text<span class="token operator">-</span>align center
+      color #ff8300
+      span
+        color #<span class="token number">212121</span>
+        font<span class="token operator">-</span>size <span class="token number">.24</span>rem
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span>
+</pre><ul>
+<li>hot.vue</li>
+</ul>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+     <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>home<span class="token operator">-</span>header<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>home<span class="token operator">-</span>header<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>home<span class="token operator">-</span>swiper<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>home<span class="token operator">-</span>swiper<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>home<span class="token operator">-</span>hot<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>home<span class="token operator">-</span>hot<span class="token operator">&gt;</span>
+     <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+<span class="token keyword">import</span> HomeHeader <span class="token keyword">from</span> <span class="token string">&apos;./components/Header&apos;</span>
+<span class="token keyword">import</span> HomeSwiper <span class="token keyword">from</span> <span class="token string">&apos;./components/Swiper&apos;</span>
+<span class="token keyword">import</span> HomeHot <span class="token keyword">from</span> <span class="token string">&apos;./components/Hot&apos;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">&apos;Home&apos;</span><span class="token punctuation">,</span>
+  components<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    HomeHeader<span class="token punctuation">,</span>
+    HomeSwiper<span class="token punctuation">,</span>
+    HomeHot
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>style scoped<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span>
+</pre><ul>
+<li>
+<p>home.vue</p>
+</li>
+<li>
+<p>&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#xFF0C;&#x5148;&#x4FDD;&#x5B58;&#x4EE3;&#x7801;&#x5230;&#x8FDC;&#x7A0B;&#x4ED3;&#x5E93;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x5408;&#x5E76;&#x4EE3;&#x7801;&#x5230;&#x4E3B;&#x5206;&#x652F;&#x3002;</p>
+</li>
+</ul>
+<pre data-role="codeBlock" data-info="cmd" class="language-cmd"><code>  git add .
+  git commit -m &apos;hot done&apos;
+  git push
+  # &#x4FDD;&#x5B58;&#x4EE3;&#x7801;
+  git checkout master
+  # &#x6211;&#x4EEC;&#x9996;&#x5148;&#x5207;&#x6362;&#x5230;master&#x5206;&#x652F;
+  git merge origin/index-hot
+  # &#x5C06;index-hot&#x5206;&#x652F;&#x5148;&#x5408;&#x5E76;&#x5230;&#x672C;&#x5730;master&#x5206;&#x652F;
+</code></pre><h3 class="mume-header" id="%E5%AE%9E%E7%8E%B0%E7%8C%9C%E4%BD%A0%E5%96%9C%E6%AC%A2%E5%8C%BA%E5%9F%9F">&#x5B9E;&#x73B0;&#x731C;&#x4F60;&#x559C;&#x6B22;&#x533A;&#x57DF;</h3>
+
+<ul>
+<li>&#x540C;&#x6837;&#x7684;&#xFF0C;&#x5148;&#x521B;&#x5EFA;&#x5206;&#x652F;&#xFF0C;&#x5728;&#x5207;&#x6362;&#x5230;&#x5206;&#x652F;&#x4E0A;&#x5F00;&#x59CB;&#x7F16;&#x7801;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x3002;</li>
+</ul>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;title&quot;</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>img <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;title-img&quot;</span> src<span class="token operator">=</span><span class="token string">&quot;http://img1.qunarzz.com/piao/fusion/1711/89/ebc329f16c55bb02.png&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>span <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;title-content&quot;</span><span class="token operator">&gt;</span>&#x731C;&#x4F60;&#x559C;&#x6B22;<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>ul<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>li <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;item&quot;</span> v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">&apos;item of likeList&apos;</span> <span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">&apos;item.id&apos;</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>img <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;item-img&quot;</span> <span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">&quot;item.imgUrl&quot;</span> <span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;item-info&quot;</span><span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>p <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;item-title&quot;</span><span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>title<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>span <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;iconfont&quot;</span> v<span class="token operator">-</span>html<span class="token operator">=</span><span class="token string">&apos;item.star&apos;</span><span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>star<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span <span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>&#x56E0;&#x4E3A;data&#x91CC;&#x8FD4;&#x56DE;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x5E76;&#x4E0D;&#x4F1A;&#x76F4;&#x63A5;&#x8BC6;&#x522B;&#x4E3A;&#x4EE3;&#x7801;&#xFF0C;&#x6240;&#x6709;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7528;&#x5230;v<span class="token operator">-</span>html&#x6765;&#x8BC6;&#x522B;&#x661F;&#x661F;&#x7684;&#x7684;&#x4EE3;&#x7801;<span class="token operator">--</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>span <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;item-comment&quot;</span><span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>comment<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>p <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;item-price&quot;</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>em<span class="token operator">&gt;</span>&#xA5;<span class="token operator">&lt;</span><span class="token operator">/</span>em<span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>price<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span>span<span class="token operator">&gt;</span>&#x8D77;<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+          <span class="token operator">&lt;</span>p <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">&quot;item-desc&quot;</span><span class="token operator">&gt;</span><span class="token punctuation">{</span><span class="token punctuation">{</span>item<span class="token punctuation">.</span>desc<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>
+  
+    <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span><span class="token string">&apos;HomeLiked&apos;</span><span class="token punctuation">,</span>
+  <span class="token function">data</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      likeList<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span> <span class="token string">&apos;001&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg&apos;</span><span class="token punctuation">,</span>
+        title<span class="token punctuation">:</span> <span class="token string">&apos;&#x4E0A;&#x6D77;&#x8FEA;&#x58EB;&#x5C3C;&#x4E50;&#x56ED;&apos;</span><span class="token punctuation">,</span>
+        star<span class="token punctuation">:</span><span class="token string">&apos;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&apos;</span><span class="token punctuation">,</span>
+        comment<span class="token punctuation">:</span><span class="token string">&apos;277442&#x6761;&#x8BC4;&#x8BBA;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;394&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;&#x5168;&#x7403;&#x6700;&#x5927;&#x7684;&#x8FEA;&#x58EB;&#x5C3C;&#x57CE;&#x5821;&apos;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span> <span class="token string">&apos;002&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/tuan/team2/1507/2c/83e0e0e7ae082a.jpg_200x200_6d7378b2.jpg&apos;</span><span class="token punctuation">,</span>
+        title<span class="token punctuation">:</span> <span class="token string">&apos;&#x4E1C;&#x65B9;&#x660E;&#x73E0;&apos;</span><span class="token punctuation">,</span>
+        star<span class="token punctuation">:</span><span class="token string">&apos;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&apos;</span><span class="token punctuation">,</span>
+        comment<span class="token punctuation">:</span><span class="token string">&apos;87877&#x6761;&#x8BC4;&#x8BBA;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;80&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;259&#x7C73;&#x900F;&#x660E;&#x60AC;&#x7A7A;&#x89C2;&#x5149;&#x5ECA;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;~&apos;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span> <span class="token string">&apos;003&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/sight/p0/1906/19/19b7939928a0200da3.img.jpg_200x200_6879c7f7.jpg&apos;</span><span class="token punctuation">,</span>
+        title<span class="token punctuation">:</span> <span class="token string">&apos;&#x4E0A;&#x6D77;&#x6D77;&#x660C;&#x6D77;&#x6D0B;&#x516C;&#x56ED;&apos;</span><span class="token punctuation">,</span>
+        star<span class="token punctuation">:</span><span class="token string">&apos;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&apos;</span><span class="token punctuation">,</span>
+        comment<span class="token punctuation">:</span><span class="token string">&apos;25826&#x6761;&#x8BC4;&#x8BBA;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;139&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;&#x5168;&#x7403;&#x6700;&#x5927;&#x7684;&#x8FEA;&#x58EB;&#x5C3C;&#x57CE;&#x5821;&apos;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span> <span class="token string">&apos;004&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg&apos;</span><span class="token punctuation">,</span>
+        title<span class="token punctuation">:</span> <span class="token string">&apos;&#x4E0A;&#x6D77;&#x8FEA;&#x58EB;&#x5C3C;&#x4E50;&#x56ED;&apos;</span><span class="token punctuation">,</span>
+        star<span class="token punctuation">:</span><span class="token string">&apos;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&apos;</span><span class="token punctuation">,</span>
+        comment<span class="token punctuation">:</span><span class="token string">&apos;277442&#x6761;&#x8BC4;&#x8BBA;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;394&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;&#x5168;&#x7403;&#x6700;&#x5927;&#x7684;&#x8FEA;&#x58EB;&#x5C3C;&#x57CE;&#x5821;&apos;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>  <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span> <span class="token string">&apos;005&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/tuan/team2/1507/2c/83e0e0e7ae082a.jpg_200x200_6d7378b2.jpg&apos;</span><span class="token punctuation">,</span>
+        title<span class="token punctuation">:</span> <span class="token string">&apos;&#x4E1C;&#x65B9;&#x660E;&#x73E0;&apos;</span><span class="token punctuation">,</span>
+        star<span class="token punctuation">:</span><span class="token string">&apos;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&apos;</span><span class="token punctuation">,</span>
+        comment<span class="token punctuation">:</span><span class="token string">&apos;87877&#x6761;&#x8BC4;&#x8BBA;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;80&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;259&#x7C73;&#x900F;&#x660E;&#x60AC;&#x7A7A;&#x89C2;&#x5149;&#x5ECA;&#x4E86;&#x89E3;&#x4E00;&#x4E0B;~&apos;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span> <span class="token string">&apos;006&apos;</span><span class="token punctuation">,</span>
+        imgUrl<span class="token punctuation">:</span> <span class="token string">&apos;http://img1.qunarzz.com/sight/p0/1906/19/19b7939928a0200da3.img.jpg_200x200_6879c7f7.jpg&apos;</span><span class="token punctuation">,</span>
+        title<span class="token punctuation">:</span> <span class="token string">&apos;&#x4E0A;&#x6D77;&#x6D77;&#x660C;&#x6D77;&#x6D0B;&#x516C;&#x56ED;&apos;</span><span class="token punctuation">,</span>
+        star<span class="token punctuation">:</span><span class="token string">&apos;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&amp;#xe6b0;&apos;</span><span class="token punctuation">,</span>
+        comment<span class="token punctuation">:</span><span class="token string">&apos;25826&#x6761;&#x8BC4;&#x8BBA;&apos;</span><span class="token punctuation">,</span>
+        price<span class="token punctuation">:</span> <span class="token string">&apos;139&apos;</span><span class="token punctuation">,</span>
+        desc<span class="token punctuation">:</span> <span class="token string">&apos;&#x5168;&#x7403;&#x6700;&#x5927;&#x7684;&#x8FEA;&#x58EB;&#x5C3C;&#x57CE;&#x5821;&apos;</span>
+      <span class="token punctuation">}</span>
+      <span class="token punctuation">]</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>style lang<span class="token operator">=</span><span class="token string">&quot;stylus&quot;</span> scoped<span class="token operator">&gt;</span>
+  <span class="token punctuation">.</span>title
+    margin<span class="token operator">-</span>top <span class="token number">.2</span>rem
+    background #eee
+    padding <span class="token number">.2</span>rem
+    <span class="token punctuation">.</span>title<span class="token operator">-</span>img
+      width <span class="token number">.3</span>rem
+      height <span class="token number">.3</span>rem
+      margin<span class="token operator">-</span>top <span class="token operator">-</span><span class="token number">.09</span>rem
+    <span class="token punctuation">.</span>title<span class="token operator">-</span>content
+      margin<span class="token operator">-</span>left<span class="token punctuation">:</span> <span class="token number">.08</span>rem
+      height<span class="token punctuation">:</span> <span class="token number">.44</span>rem
+      color<span class="token punctuation">:</span> red
+      font<span class="token operator">-</span>size<span class="token punctuation">:</span> <span class="token number">.32</span>rem
+      line<span class="token operator">-</span>height<span class="token punctuation">:</span> <span class="token number">.44</span>rem
+  <span class="token punctuation">.</span>item
+    overflow<span class="token punctuation">:</span> hidden
+    display<span class="token punctuation">:</span> flex
+    height<span class="token punctuation">:</span> <span class="token number">1.9</span>rem
+    padding<span class="token operator">-</span>bottom <span class="token number">1</span>rem
+    border<span class="token operator">-</span>bottom <span class="token number">1</span>px solid #ccc
+    <span class="token punctuation">.</span>item<span class="token operator">-</span>img
+      width<span class="token punctuation">:</span> <span class="token number">2</span>rem
+      height<span class="token punctuation">:</span> <span class="token number">2</span>rem
+      padding<span class="token punctuation">:</span> <span class="token number">.2</span>rem
+    <span class="token punctuation">.</span>item<span class="token operator">-</span>info
+      flex <span class="token number">1</span>
+      padding<span class="token punctuation">:</span> <span class="token number">.1</span>rem
+      margin<span class="token operator">-</span>top <span class="token number">.3</span>rem
+      min<span class="token operator">-</span>width<span class="token punctuation">:</span> <span class="token number">0</span>
+      <span class="token punctuation">.</span>item<span class="token operator">-</span>title
+        height<span class="token punctuation">:</span> <span class="token number">.44</span>rem
+        color<span class="token punctuation">:</span> #<span class="token number">212121</span>
+        font<span class="token operator">-</span>size<span class="token punctuation">:</span> <span class="token number">.32</span>rem
+        line<span class="token operator">-</span>height<span class="token punctuation">:</span> <span class="token number">.44</span>rem
+        margin<span class="token operator">-</span>bottom <span class="token number">.1</span>rem
+      <span class="token punctuation">.</span>iconfont
+          color #ffb436
+          font<span class="token operator">-</span>size <span class="token number">.25</span>rem
+      <span class="token punctuation">.</span>item<span class="token operator">-</span>comment
+            color #<span class="token number">212121</span>
+            margin<span class="token operator">-</span>left <span class="token number">.2</span>rem
+      <span class="token punctuation">.</span>item<span class="token operator">-</span>price
+        font<span class="token operator">-</span>size<span class="token punctuation">:</span> <span class="token number">.4</span>rem
+        color #ffb436
+        margin<span class="token operator">-</span>top <span class="token number">.2</span>rem
+        em
+          font<span class="token operator">-</span>size<span class="token punctuation">:</span> <span class="token number">.25</span>rem
+        span
+          color #<span class="token number">616161</span>
+          font<span class="token operator">-</span>size<span class="token punctuation">:</span> <span class="token number">.25</span>rem
+      <span class="token punctuation">.</span>item<span class="token operator">-</span>desc
+        margin<span class="token operator">-</span>top <span class="token number">.6</span>rem
+        color #f55
+        font<span class="token operator">-</span>size <span class="token number">.24</span>rem
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span>
+</pre><ul>
+<li>like.vue</li>
+</ul>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript"><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
+     <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>home<span class="token operator">-</span>header<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>home<span class="token operator">-</span>header<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>home<span class="token operator">-</span>swiper<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>home<span class="token operator">-</span>swiper<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>home<span class="token operator">-</span>hot<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>home<span class="token operator">-</span>hot<span class="token operator">&gt;</span>
+         <span class="token operator">&lt;</span>home<span class="token operator">-</span>liked<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>home<span class="token operator">-</span>liked<span class="token operator">&gt;</span>
+     <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+<span class="token keyword">import</span> HomeHeader <span class="token keyword">from</span> <span class="token string">&apos;./components/Header&apos;</span>
+<span class="token keyword">import</span> HomeSwiper <span class="token keyword">from</span> <span class="token string">&apos;./components/Swiper&apos;</span>
+<span class="token keyword">import</span> HomeHot <span class="token keyword">from</span> <span class="token string">&apos;./components/Hot&apos;</span>
+<span class="token keyword">import</span> HomeLiked <span class="token keyword">from</span> <span class="token string">&apos;./components/Liked&apos;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">&apos;Home&apos;</span><span class="token punctuation">,</span>
+  components<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    HomeHeader<span class="token punctuation">,</span>
+    HomeSwiper<span class="token punctuation">,</span>
+    HomeHot<span class="token punctuation">,</span>
+    HomeLiked
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span>style scoped<span class="token operator">&gt;</span>
+
+<span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span>
+
+</pre><ul>
+<li>Home.vue</li>
 </ul>
 
       </div>
