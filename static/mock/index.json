@@ -1,0 +1,132 @@
+{   
+  "ret": true,
+  "comment":"ret为true表示服务器正确相应了请求",
+  "data": {
+    "swiperList":[{
+      "id":"001",
+      "imgUrl":"http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/201910/c8762210baff5ade1a3b2fe0ab914992.png_750x200_9bbb2f51.png"
+    },{
+      "id":"002",
+      "imgUrl":"http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/201911/1d8faa9f4d49b77ca1e61e2b478260f7.jpg_750x200_25cf76e2.jpg"
+    },{
+      "id":"003",
+      "imgUrl":"http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/201910/e7eac5a5e99e6517c61b953c0fece63b.jpg_750x200_4b701cf8.jpg"
+    },{
+      "id":"004",
+      "imgUrl":"http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/201911/6da1597f11456f5a42a1818ab3f6fa08.jpg_750x200_31b64c4a.jpg"
+    }],
+    "iconList": [{
+        "id": "0001",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/54/ace00878a52d9702.png",
+        "desc": "景点门票"
+      }, {
+        "id": "0002",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1711/df/86cbcfc533330d02.png",
+        "desc": "滑雪季"
+      }, {
+        "id": "0003",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1710/a6/83f636bd75ae6302.png",
+        "desc": "泡温泉"
+      }, {
+        "id": "0004",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/35/2640cab202c41b02.png",
+        "desc": "动植园"
+      }, {
+        "id": "0005",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/d0/e09575e66f4aa402.png",
+        "desc": "游乐园"
+      }, {
+        "id": "0006",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/59/569d3c096e542502.png",
+        "desc": "必游榜单"
+      }, {
+        "id": "0007",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/17/4bd370f3eb1acd02.png",
+        "desc": "演出"
+      }, {
+        "id": "0008",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/7f/b1ea3c8c7fb6db02.png",
+        "desc": "城市观光"
+      }, {
+        "id": "0009",
+        "imgUrl": "http://img1.qunarzz.com/piao/fusion/1611/a9/ffc620dbda9b9c02.png",
+        "desc": "一日游"
+      }],
+      "likeList": [{
+        "id": "001",
+        "imgUrl": "http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg",
+        "title": "上海迪士尼乐园",
+        "star":"&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;",
+        "comment":"277442条评论",
+        "price": "394",
+        "desc": "全球最大的迪士尼城堡"
+      }, {
+        "id": "002",
+        "imgUrl": "http://img1.qunarzz.com/tuan/team2/1507/2c/83e0e0e7ae082a.jpg_200x200_6d7378b2.jpg",
+        "title": "东方明珠",
+        "star":"&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;",
+        "comment":"87877条评论",
+        "price": "80",
+        "desc": "259米透明悬空观光廊了解一下~"
+      }, {
+        "id": "003",
+        "imgUrl": "http://img1.qunarzz.com/sight/p0/1906/19/19b7939928a0200da3.img.jpg_200x200_6879c7f7.jpg",
+        "title": "上海海昌海洋公园",
+        "star":"&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;",
+        "comment":"25826条评论",
+        "price": "139",
+        "desc": "全球最大的迪士尼城堡"
+      }, {
+        "id": "004",
+        "imgUrl": "http://img1.qunarzz.com/sight/p0/1607/7c/7cda8b6782dabd80b4.img.jpg_200x200_2039e660.jpg",
+        "title": "上海迪士尼乐园",
+        "star":"&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;",
+        "comment":"277442条评论",
+        "price": "394",
+        "desc": "全球最大的迪士尼城堡"
+      },  {
+        "id": "005",
+        "imgUrl": "http://img1.qunarzz.com/tuan/team2/1507/2c/83e0e0e7ae082a.jpg_200x200_6d7378b2.jpg",
+        "title": "东方明珠",
+        "star":"&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;",
+        "comment":"87877条评论",
+        "price": "80",
+        "desc": "259米透明悬空观光廊了解一下~"
+      }, {
+        "id": "006",
+        "imgUrl": "http://img1.qunarzz.com/sight/p0/1906/19/19b7939928a0200da3.img.jpg_200x200_6879c7f7.jpg",
+        "title": "上海海昌海洋公园",
+        "star":"&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;&#xe6b0;",
+        "comment":"25826条评论",
+        "price": "139",
+        "desc": "全球最大的迪士尼城堡"
+      }
+      ],
+    "weekendList": [{
+        "id": "0001",
+        "imgUrl": "http://img1.qunarzz.com/sight/source/1510/6e/1ea71e2f04e.jpg_r_640x214_aa6f091d.jpg",
+        "title": "北京温泉排行榜",
+        "desc": "细数北京温泉，温暖你的冬天"
+      }, {
+        "id": "0002",
+        "imgUrl": "http://img1.qunarzz.com/sight/source/1505/aa/7baaf8a851d221.jpg_r_640x214_1431200f.jpg",
+        "title": "北京必游TOP10",
+        "desc": "来北京必去的景点非这些地方莫属"
+      }, {
+        "id": "0003",
+        "imgUrl": "http://img1.qunarzz.com/sight/source/1505/9e/21df651e19af5d.jpg_r_640x214_3ea5bb38.jpg",
+        "title": "寻找北京的皇城范儿",
+        "desc": "数百年的宫廷庙宇，至今依旧威严霸气"
+      }, {
+        "id": "0004",
+        "imgUrl": "http://img1.qunarzz.com/sight/source/1505/ce/bc89bc2f0e33ea.jpg_r_640x214_3e408453.jpg",
+        "title": "学生最爱的博物馆",
+        "desc": "周末干嘛？北京很多博物馆已经免费开放啦"
+      }, {
+        "id": "0005",
+        "imgUrl": "http://img1.qunarzz.com/sight/source/1505/b2/fde1bfcd057a52.jpg_r_640x214_bbf3fa44.jpg",
+        "title": "儿童剧场，孩子的乐园",
+        "desc": "带宝贝观看演出，近距离体验艺术的无穷魅力"
+      }]
+  }
+}

@@ -733,6 +733,7 @@ export default {
   git merge origin/index-swiper
   # 将index-swiper分支先合并到本地master分支
 <<<<<<< HEAD
+<<<<<<< HEAD
   
 ```
 
@@ -741,6 +742,14 @@ export default {
   # 在将master分支的推送到远程仓库
 ```
 >>>>>>> index-icons
+=======
+  
+```
+
+  git push 
+  # 在将master分支的推送到远程仓库
+```
+>>>>>>> origin/index-ajax
 ### 完成图标区域布局
 
 * 首先我们在github上创建一个新的 index-icons分支,然后我们要切换到index-icons这个分支上。
@@ -754,11 +763,17 @@ export default {
 > 我们首先在components文件夹下面新建Icons.vue这个文件，然后并在Home.vue添加HomeIcons这个组件实现基本的布局
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 ``` javascript
 =======
 ```  javascript
 >>>>>>> index-icons
+=======
+
+``` javascript
+```  javascript
+>>>>>>> origin/index-ajax
 <template>
      <div>
          <home-header></home-header>
@@ -786,12 +801,16 @@ export default {
 
 </style>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/index-ajax
 
 ```
 
 * Home.vue
 
 
+<<<<<<< HEAD
 =======
 ```
 * Home.vue
@@ -801,6 +820,18 @@ export default {
 <template>
    <div class='icons'>
     <!-- icons是最外层-->
+=======
+``` javascript
+<template>
+   <div class='icons'>
+    <!-- icons是最外层-->
+```
+* Home.vue
+
+``` javascript
+<template>
+   <div class='icons'>
+>>>>>>> origin/index-ajax
       <div class="icon">
         <div class='icon-img'>
           <img class="icon-img-content"  src="http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png" />
@@ -808,6 +839,10 @@ export default {
         <p class="icons-desc">景点门票</p>
       </div>
       <!-- icon层代表一个图标层-->
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/index-ajax
       <div class="icon">
           <div class='icon-img'>
             <img class="icon-img-content"  src="http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png" />
@@ -838,7 +873,14 @@ export default {
       width: 25%
       height: 0
       padding-bottom: 25%
+<<<<<<< HEAD
       //单个icon层样式
+=======
+<<<<<<< HEAD
+      //单个icon层样式
+=======
+>>>>>>> origin/index-icons
+>>>>>>> origin/index-ajax
       .icon-img
         position: absolute
         top: 0
@@ -860,6 +902,9 @@ export default {
         text-align: center
 </style>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/index-ajax
 
 ```
 
@@ -1005,6 +1050,7 @@ ellipsis()
 
 * varibles.styl
 
+<<<<<<< HEAD
 ### 热榜区域实现
 
 * 首先在线上仓库Github中创建新的分支，然后在本地拉取并切换新的index-Hot分支。再在components目录下创建Hot.vue文件，然后利用swiper组件实现我们要的效果，代码如下。
@@ -1385,3 +1431,9 @@ export default {
 * Icons.vue
     
 >>>>>>> index-icons
+=======
+### 
+```
+* Icons.vue
+    
+>>>>>>> origin/index-ajax
