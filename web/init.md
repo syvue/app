@@ -542,7 +542,7 @@ $bgColor = #00bcd4
 
 ### 安装轮播图swiper插件
 
-> 我们打开(https://github.com/surmon-china/vue-awesome-swiper)[https://github.com/surmon-china/vue-awesome-swiper]这个地址查先看一下这个插件的readme说明文档。考虑到兼容性和稳定性的问题，我们采用安装2.6.7这个版本
+> 我们打开[https://github.com/surmon-china/vue-awesome-swiper](https://github.com/surmon-china/vue-awesome-swiper)这个地址查先看一下这个插件的readme说明文档。考虑到兼容性和稳定性的问题，我们采用安装2.6.7这个版本
 
 ``` npm
 npm install vue-awesome-swiper@2.6.7 --save
@@ -1426,14 +1426,205 @@ export default {
 
 ```
 * Home.vue
-=======
-```
-* Icons.vue
+
     
->>>>>>> index-icons
-=======
-### 
+### 周末去哪儿区域
+
+* 我们先在components下创建**Weekend.vue**文件，代码如下：
+
+```javascript
+<template>
+  <div>
+    <div class="title">周末去哪儿</div>
+    <ul>
+        <li class="item border-bottom" v-for="item of itemList" :key="item.id">
+          <div class="item-img-wrapper">
+            <img class="item-img" :src="item.imgUrl" >
+          </div>
+          <div class="item-info">
+            <p class="item-title">{{item.title}}</p>
+            <p class="item-desc">{{item.desc}}</p>
+          </div>
+        </li>
+    </ul> 
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Weekend',
+  data () {
+    return {
+      itemList:[{
+        id:'001',
+        imgUrl:'http://img1.qunarzz.com/sight/source/1511/ea/7f43191b747bb9.jpg_r_640x214_f58e829d.jpg',
+        title:'上海泡汤圣地',
+        desc:'上海的朋友总会问，哪里可以泡温泉，哪里的温泉好呢？这里有最好最全的上海温泉'
+      },{
+        id:'002',
+        imgUrl:'http://img1.qunarzz.com/sight/source/1511/ea/7f43191b747bb9.jpg_r_640x214_f58e829d.jpg',
+        title:'上海泡汤圣地',
+        desc:'上海的朋友总会问，哪里可以泡温泉，哪里的温泉好呢？这里有最好最全的上海温泉'
+      }]
+    }
+  }
+}
+</script>
+
+<style lang="stylus" scoped>
+  @import '~styles/varibles.styl';
+  .title
+    line-height: .8rem
+    background: #eee
+    text-indent: .2rem
+  .item-img-wrapper
+    overflow: hidden
+    height: 0
+    padding-bottom: 37.09%
+    .item-img
+      width: 100%
+  .item-info
+    padding: .1rem
+    .item-title
+      line-height: .54rem
+      font-size: .32rem
+      ellipsis()
+    .item-desc
+      line-height: .4rem
+      color: #ccc
+      ellipsis()
+</style>
+
 ```
-* Icons.vue
-    
->>>>>>> origin/index-ajax
+* Weekend.vue
+
+```javascript
+<template>
+     <div>
+         <home-header></home-header>
+         <home-swiper></home-swiper>
+         <home-hot></home-hot>
+         <home-liked></home-liked>
+         <home-weekend></home-weekend>
+     </div>
+</template>
+
+<script>
+import HomeHeader from './components/Header'
+import HomeSwiper from './components/Swiper'
+import HomeHot from './components/Hot'
+import HomeLiked from './components/Liked'
+import HomeWeekend from './components/Weekend'
+export default {
+  name: 'Home',
+  components: {
+    HomeHeader,
+    HomeSwiper,
+    HomeHot,
+    HomeLiked,
+    HomeWeekend
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
+
+```
+
+### 通过Ajax获取数据
+
+> 我们首先在github上创建index-ajax分支，然后在本地git pull 拉取一下新建的分支，然后切换到index-ajax分支。为了实现发送ajax请求,我们再来安装axios这个第三方模块。
+
+``` javascript
+npm install axios --save 
+# 安装axios
+
+```
+* 安装axios之后我们就开始正式开发，代码如下：
+
+``` javascript
+<template>
+     <div>
+         <home-header></home-header>
+         <home-swiper></home-swiper>
+         <home-icons></home-icons>
+         <home-hot></home-hot>
+         <home-liked></home-liked>
+         <home-weekend></home-weekend>
+     </div>
+</template>
+
+<script>
+import HomeHeader from './components/Header'
+import HomeIcons from './components/Icons'
+import HomeSwiper from './components/Swiper'
+import HomeHot from './components/Hot'
+import HomeLiked from './components/Liked'
+import HomeWeekend from './components/Weekend'
+import axios from 'axios'
+// 引入axions
+export default {
+  name: 'Home',
+  components: {
+    HomeHeader,
+    HomeSwiper,
+    HomeHot,
+    HomeLiked,
+    HomeWeekend,
+    HomeIcons
+  },
+  // 在methods中定义函数getHomeInfo()
+  methods: {
+    getHomeInfo () {
+      // getHomeInfo中使用axios请求index.json的数据，然后执行getHomeInfoSucc函数
+      axios.get('/api/index.json').then(this.getHomeInfoSucc)
+      //static目录下的文件可以在地址栏上直接访问，src目录下文件不能直接访问，
+      //但是从上线和安全角度考虑我们需要使用代理转发机制将真实的访问目录隐藏替换成api
+      //我们可以在config目录下的index.js文件里proxyTable里实现这个功能
+    },
+      // getHomeInfoSucc会将获取成功的数据打印
+    getHomeInfoSucc (res) {
+      console.log(res)
+    }
+  },
+  // 生命周期函数mounted
+  mounted () {
+    //在生命周期中执行getHomeInfo函数
+    this.getHomeInfo()
+    HomeWeekend,
+    HomeIcons
+  }
+}
+</script>
+
+<style scoped>
+
+</style>
+
+```
+* Home.vue
+
+* 修改config下index.js中proxyTable
+```javascript
+    proxyTable: {
+      //指定访问本地 localhost:8080下的以/api开头的路径时会自动替换成/static/mock目录
+      //这个转发功能是webpack-server提供的
+      '/api':{
+        target:'http://localhost:8080',
+        pathRewrite:{
+          '^/api':'/static/mock'
+        }
+      }
+    },
+```
+* config/inde.js
+
+### 实现父子组件之间数据传递
+
+* 当使用axios来传递数据之后，我们就不在需要再使用页面里data中的数据了。代码如下：
+
+```javascript
+
+```
