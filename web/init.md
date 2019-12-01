@@ -263,8 +263,8 @@ export default new Router({
 
 * webpack 项目打包工具 -->
 
-### 项目初始化
 
+### 项目初始化
 
 #### 导入依赖文件
 ![](init01.jpg)
@@ -703,11 +703,13 @@ export default {
 <style lang='stylus' scoped>
   .wrapper >>> .swiper-pagination-bullet-active
     background: #fff
+    //实现.wrapper对.swiper-pagination-bullet-active的样式穿透
   .wrapper
     overflow: hidden
     width: 100%
     height: 0
     padding-bottom: 26.66%
+    // .wrapper实现按比例占位
     .swiper-img
       width: 100%
 </style>
@@ -730,9 +732,15 @@ export default {
   # 我们首先切换到master分支
   git merge origin/index-swiper
   # 将index-swiper分支先合并到本地master分支
+<<<<<<< HEAD
   
 ```
 
+=======
+  git push 
+  # 在将master分支的推送到远程仓库
+```
+>>>>>>> index-icons
 ### 完成图标区域布局
 
 * 首先我们在github上创建一个新的 index-icons分支,然后我们要切换到index-icons这个分支上。
@@ -745,8 +753,12 @@ export default {
 ```
 > 我们首先在components文件夹下面新建Icons.vue这个文件，然后并在Home.vue添加HomeIcons这个组件实现基本的布局
 
+<<<<<<< HEAD
 
 ``` javascript
+=======
+```  javascript
+>>>>>>> index-icons
 <template>
      <div>
          <home-header></home-header>
@@ -773,12 +785,18 @@ export default {
 <style scoped>
 
 </style>
+<<<<<<< HEAD
 
 ```
 
 * Home.vue
 
 
+=======
+```
+* Home.vue
+
+>>>>>>> index-icons
 ``` javascript
 <template>
    <div class='icons'>
@@ -841,6 +859,7 @@ export default {
         line-height: .44rem
         text-align: center
 </style>
+<<<<<<< HEAD
 
 ```
 
@@ -1361,3 +1380,8 @@ export default {
 
 ```
 * Home.vue
+=======
+```
+* Icons.vue
+    
+>>>>>>> index-icons
