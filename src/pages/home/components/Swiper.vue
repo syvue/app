@@ -20,11 +20,11 @@ export default {
     list: Array
     // 指定props里接收list是数组
   },
-  data() {
+  data () {
     return {
       swiperOption:{
         pagination: '.swiper-pagination',
-        loop:true 
+        loop: true
       }
       // ,
       // swiperList:[{
@@ -42,11 +42,8 @@ export default {
       // }]
     }
   }
- 
 }
 </script>
-
-
 <style lang='stylus' scoped>
   .wrapper >>> .swiper-pagination-bullet-active
     background: #fff

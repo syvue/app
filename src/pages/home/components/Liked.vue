@@ -17,8 +17,7 @@
           <p class="item-price"><em>¥</em>{{item.price}}<span>起</span></p>
           <p class="item-desc">{{item.desc}}</p>
         </div>
-      </li>
-  
+      </li>  
     </ul>
   </div>
 </template>

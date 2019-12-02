@@ -11,7 +11,7 @@
             <p class="item-desc">{{item.desc}}</p>
           </div>
         </li>
-    </ul> 
+    </ul>
   </div>
 </template>
 
@@ -21,21 +21,7 @@ export default {
   props: {
     list: Array
   }
-  // data () {
-  //   return {
-  //     itemList:[{
-  //       id:'001',
-  //       imgUrl:'http://img1.qunarzz.com/sight/source/1511/ea/7f43191b747bb9.jpg_r_640x214_f58e829d.jpg',
-  //       title:'上海泡汤圣地',
-  //       desc:'上海的朋友总会问，哪里可以泡温泉，哪里的温泉好呢？这里有最好最全的上海温泉'
-  //     },{
-  //       id:'002',
-  //       imgUrl:'http://img1.qunarzz.com/sight/source/1511/ea/7f43191b747bb9.jpg_r_640x214_f58e829d.jpg',
-  //       title:'上海泡汤圣地',
-  //       desc:'上海的朋友总会问，哪里可以泡温泉，哪里的温泉好呢？这里有最好最全的上海温泉'
-  //     }]
-  //   }
-  // }
+
 }
 </script>
 
