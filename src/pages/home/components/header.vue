@@ -7,16 +7,24 @@
               <span class="iconfont">&#xe647;</span>
                  输入城市/景点/游玩主题
         </div>
-        <div class="header-right">
-            城市
-             <span class="iconfont arrow-icon">&#xe6aa;</span>
-        </div>
+        <!-- 使用router-link标签包裹header-right标签并制定路由跳转到'/city'-->
+        <router-link to='/city'>
+            <div class="header-right">
+                {{this.city}}
+                <!-- 传入城市的名称 -->
+                <span class="iconfont arrow-icon">&#xe6aa;</span>
+            </div>
+        </router-link>
      </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  props: {
+    city: String
+    // 通过props指定接受数据的类型，city必须是String字符串类型
+  }
 }
 </script>
 
