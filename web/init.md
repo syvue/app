@@ -2,32 +2,34 @@
 
 <!-- TOC -->
 
-- [项目准备<!-- TOC -->](#项目准备---toc---)
-  - [安装NPM](#安装npm)
-  - [创建一个代码仓库](#创建一个代码仓库)
-  - [安装vue-cli 命令行工具](#安装vue-cli-命令行工具)
-  - [项目目录说明](#项目目录说明)
-  - [**.vue**单文件组件](#vue单文件组件)
-  - [多页应用和单页应用](#多页应用和单页应用)
-  - [Vue-Router](#vue-router)
-  - [项目初始化](#项目初始化)
-    - [导入依赖文件](#导入依赖文件)
-    - [修改项目文件](#修改项目文件)
-    - [修改路由文件](#修改路由文件)
-    - [修改入口文件](#修改入口文件)
-    - [修改index.html文件](#修改indexhtml文件)
-  - [header组件区域](#header组件区域)
-    - [代码优化](#代码优化)
-  - [新建代码分支](#新建代码分支)
-  - [安装轮播图swiper插件](#安装轮播图swiper插件)
-    - [优化轮播图](#优化轮播图)
-  - [完成图标区域布局](#完成图标区域布局)
-  - [图标区逻辑实现](#图标区逻辑实现)
-  - [热榜区域实现](#热榜区域实现)
-  - [实现猜你喜欢区域](#实现猜你喜欢区域)
-  - [周末去哪儿区域](#周末去哪儿区域)
-  - [通过Ajax获取数据](#通过ajax获取数据)
-  - [实现父子组件之间数据传递](#实现父子组件之间数据传递)
+- [安装NPM](#安装npm)
+- [创建一个代码仓库](#创建一个代码仓库)
+- [安装vue-cli 命令行工具](#安装vue-cli-命令行工具)
+- [项目目录说明](#项目目录说明)
+- [**.vue**单文件组件](#vue单文件组件)
+- [多页应用和单页应用](#多页应用和单页应用)
+- [Vue-Router](#vue-router)
+- [项目初始化](#项目初始化)
+  - [导入依赖文件](#导入依赖文件)
+  - [修改项目文件](#修改项目文件)
+  - [修改路由文件](#修改路由文件)
+  - [修改入口文件](#修改入口文件)
+  - [修改index.html文件](#修改indexhtml文件)
+- [header组件区域](#header组件区域)
+  - [代码优化](#代码优化)
+- [新建代码分支](#新建代码分支)
+- [安装轮播图swiper插件](#安装轮播图swiper插件)
+  - [优化轮播图](#优化轮播图)
+- [完成图标区域布局](#完成图标区域布局)
+- [图标区逻辑实现](#图标区逻辑实现)
+- [热榜区域实现](#热榜区域实现)
+- [实现猜你喜欢区域](#实现猜你喜欢区域)
+- [周末去哪儿区域](#周末去哪儿区域)
+- [通过Ajax获取数据](#通过ajax获取数据)
+- [实现父子组件之间数据传递](#实现父子组件之间数据传递)
+- [城市页面路由和页面跳转](#城市页面路由和页面跳转)
+- [城市搜索框](#城市搜索框)
+- [城市列表](#城市列表)
 
 <!-- /TOC -->
 
@@ -2069,3 +2071,378 @@ export default {
 </style>
 ```
 * Weekend.list 
+
+### 城市页面路由和页面跳转
+
+> 首先在pages目录下创建city目录，再在city目录下创建city.vue文件和components文件夹。city.vue文件作为城市页面的入口文件。我们先初始化city.vue文件，然后在修改router目录下的index.js文件添加城市页面的路由。代码如下：
+
+```javascript
+<template>
+  <div>
+   城市列表
+  </div>
+</template>
+
+<script>
+
+export default {
+  name: 'City'
+}
+</script>
+
+<style lang="stylus" scoped>
+
+</style>
+
+```
+
+* city.vue 
+
+```javascript
+
+import Vue from 'vue'
+import Router from 'vue-router'
+import Home from '@/pages/home/Home'
+import City from '@/pages/city/City'
+// 添加city页面组件
+
+Vue.use(Router)
+
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'Home',
+      component: Home
+    },
+    // 添加city页面的路由
+    {
+      path: '/city',
+      name: 'City',
+      component: City
+    }
+  ]
+})
+```
+
+* router/index.js
+
+> 我们先在修改Home组件下面的header.vue中城市添加router-link标签实现跳转城市页面。代码如下：
+
+```javascript
+        <!-- 使用router-link标签包裹header-right标签并制定路由跳转到'/city'-->
+        <router-link to='/city'>
+            <div class="header-right">
+                {{this.city}}
+                <!-- 传入城市的名称 -->
+                <span class="iconfont arrow-icon">&#xe6aa;</span>
+            </div>
+        </router-link>
+```
+* home/components/header.vue
+
+> 接着我们在city目录下components下新建Header.vue文件，来完善城市页面跳转的功能。代码如下：
+
+```javascript
+<template>
+  <div class="header">
+    城市选择
+    <router-link to='/'>
+       <div class="iconfont header-back">&#xe622;</div>
+    </router-link>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'CityHeader'
+}
+</script>
+
+<style lang="stylus" scoped>
+@import '~styles/varibles.styl'
+.header
+  position relative
+  overflow hidden
+  height .86rem
+  line-height .86rem
+  text-align center
+  color #fff
+  background $bgColor
+  font-size .32rem
+  .header-back
+    position:absolute
+    top 0
+    left 0
+    width .64rem
+    text-align center
+    font-size .4 rem
+    color #fff
+</style>
+```
+* city/components/Header.vue
+
+> 在City.vue中导入Header.vue，代码如下：
+
+```javascript
+<template>
+  <div>
+    <city-header></city-header>
+  </div>
+</template>
+
+<script>
+import CityHeader from './components/Header'
+export default {
+  name: 'City',
+  components:{
+    CityHeader,
+    CitySearch
+  }
+}
+</script>
+
+<style lang="stylus" scoped>
+
+</style>
+
+```
+
+### 城市搜索框
+
+> 在city/components下新建search.vue来实现搜索框，代码如下：
+
+```javascript
+<template>
+  <div class="search">
+    <input type="text" class="search-input" placeholder="输入城市名或拼音" />
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'CitySearch'
+}
+</script>
+
+<style lang="stylus" scoped>
+  @import '~styles/varibles.styl'
+    .search
+      background $bgColor
+      height .72rem
+      padding 0 .1rem
+      .search-input
+        box-sizing border-box
+        width 100%
+        height .62rem
+        line-height .62rem
+        padding 0 .1rem
+        text-align center
+        border-radius .06rem
+        color #666
+</style>
+```
+* city/components/Search.vue
+
+> 然后在City.vue中导入Search.vue
+```javascript
+<template>
+  <div>
+    <city-header></city-header>
+    <city-search></city-search>
+  </div>
+</template>
+
+<script>
+import CityHeader from './components/Header'
+import CitySearch from './components/Search'
+export default {
+  name: 'City',
+  components:{
+    CityHeader,
+    CitySearch
+  }
+}
+</script>
+
+<style lang="stylus" scoped>
+
+</style>
+```
+
+### 城市列表
+
+> city/components下新建List.vue文件来实现城市列表，然后将List.vue导入City.vue代码如下：
+
+```javascript
+<template>
+  <div class="list">
+    <div class="area">
+       <div class="title border-topbottom">当前城市</div>
+       <div class="button-list">
+         <div class="button-wrapper">
+            <div class="button">北京</div>
+         </div>
+       </div>
+    </div>
+    <div class="area">
+       <div class="title border-topbottom">热门城市</div>
+         <div class="button-list">
+         <div class="button-wrapper">
+            <div class="button">北京</div>
+         </div>
+          <div class="button-wrapper">
+            <div class="button">北京</div>
+         </div>
+          <div class="button-wrapper">
+            <div class="button">北京</div>
+         </div>
+          <div class="button-wrapper">
+            <div class="button">北京</div>
+         </div>
+          <div class="button-wrapper">
+            <div class="button">北京</div>
+         </div>
+       </div>
+    </div>
+    <div class="area">
+       <div class="title border-topbottom">A</div>
+       <div class="item-list">
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+       </div>
+              <div class="title border-topbottom">A</div>
+       <div class="item-list">
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+       </div>
+      <div class="title border-topbottom">A</div>
+       <div class="item-list">
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+                  <div class="item border-bottom">
+           阿拉善
+         </div>
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+         <div class="item border-bottom">
+           阿拉善
+         </div>
+       </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'CityList'
+}
+</script>
+
+<style lang="stylus" scoped>
+  @import '~styles/varibles.styl'
+  .border-topbottom
+    &:before
+      border-color: #ccc
+    &:after
+      border-color: #ccc
+  .border-bottom
+    &:after
+      border-color: #ccc
+  .title
+    line-height .44rem
+    background #eee
+    padding-left .2rem
+    color #666
+    font-size .26rem
+  .button-list
+    overflow hidden
+    padding .1rem .6rem .1rem .1rem
+    .button-wrapper
+      float left
+      width 33.33%
+      .button
+        text-align center
+        margin .1rem
+        padding .1rem 0
+        border .02rem solid #ccc
+        border-radius: .08rem
+  .item-list
+    .item
+      line-height .54rem
+</style>
+```
+
+* city/components/List.vue 
+
+```javascript
+<template>
+  <div>
+    <city-header></city-header>
+    <city-search></city-search>
+    <city-list></city-list>
+  </div>
+</template>
+
+<script>
+import CityHeader from './components/Header'
+import CitySearch from './components/Search'
+import CityList from './components/List'
+export default {
+  name: 'City',
+  components:{
+    CityHeader,
+    CitySearch,
+    CityList
+  }
+}
+</script>
+```
+
+* City.vue
