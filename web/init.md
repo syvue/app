@@ -1,5 +1,35 @@
 
-## 项目准备
+
+<!-- TOC -->
+
+- [项目准备<!-- TOC -->](#项目准备---toc---)
+  - [安装NPM](#安装npm)
+  - [创建一个代码仓库](#创建一个代码仓库)
+  - [安装vue-cli 命令行工具](#安装vue-cli-命令行工具)
+  - [项目目录说明](#项目目录说明)
+  - [**.vue**单文件组件](#vue单文件组件)
+  - [多页应用和单页应用](#多页应用和单页应用)
+  - [Vue-Router](#vue-router)
+  - [项目初始化](#项目初始化)
+    - [导入依赖文件](#导入依赖文件)
+    - [修改项目文件](#修改项目文件)
+    - [修改路由文件](#修改路由文件)
+    - [修改入口文件](#修改入口文件)
+    - [修改index.html文件](#修改indexhtml文件)
+  - [header组件区域](#header组件区域)
+    - [代码优化](#代码优化)
+  - [新建代码分支](#新建代码分支)
+  - [安装轮播图swiper插件](#安装轮播图swiper插件)
+    - [优化轮播图](#优化轮播图)
+  - [完成图标区域布局](#完成图标区域布局)
+  - [图标区逻辑实现](#图标区逻辑实现)
+  - [热榜区域实现](#热榜区域实现)
+  - [实现猜你喜欢区域](#实现猜你喜欢区域)
+  - [周末去哪儿区域](#周末去哪儿区域)
+  - [通过Ajax获取数据](#通过ajax获取数据)
+  - [实现父子组件之间数据传递](#实现父子组件之间数据传递)
+
+<!-- /TOC -->
 
 ### 安装NPM
 
@@ -1477,7 +1507,7 @@ export default {
 
 ### 通过Ajax获取数据
 
-> 我们首先在github上创建index-ajax分支，然后在本地git pull 拉取一下新建的分支，然后切换到index-ajax分支。为了实现发送ajax请求,我们再来安装axios这个第三方模块。
+> 我们首先在github上创建index-ajax分支，然后在本地git pull 拉取一下新建的分支，然后切换到index-ajax分支。为了实现发送ajax请求,我们再来安装axios这个第三方模块。然后我们需需要将原来每个组件里data数据集合到到一起形成一个新的Json文件index.json存放到static目录下的mock目录里。例如：static/mock/index.json，等等要用到。
 
 ``` javascript
 npm install axios --save 
@@ -1568,7 +1598,474 @@ export default {
 * 当使用axios来传递数据之后，我们就不在需要再使用页面里data中的数据了。我们先修改Home.vue里的代码在修改其他的，代码如下：
 
 ```javascript
+<template>
+     <div>
+         <!-- 通过绑定city属性来传值 -->
+         <home-header :city='city'></home-header>
+         <!-- 绑定list来传递swiperList数据-->
+         <home-swiper :list='swiperList'></home-swiper>
+         <!-- 绑定list来传递iconList数据-->
+         <home-icons :list="iconList"></home-icons>
+         <!-- 绑定list来传递hotList数据-->
+         <home-hot :list='hotList'></home-hot>
+         <!-- 绑定list来传递likeList数据-->
+         <home-liked :list='likeList'></home-liked>
+         <!-- 绑定list来传递weekendList数据-->
+         <home-weekend :list='weekendList'></home-weekend>
+     </div>
+</template>
 
+<script>
+import HomeHeader from './components/Header'
+import HomeSwiper from './components/Swiper'
+import HomeIcons from './components/Icons'
+import HomeHot from './components/Hot'
+import HomeLiked from './components/Liked'
+import HomeWeekend from './components/Weekend'
+import axios from 'axios'
+// 引入axions
+export default {
+  name: 'Home',
+  components: {
+    HomeHeader,
+    HomeSwiper,
+    HomeIcons,
+    HomeHot,
+    HomeLiked,
+    HomeWeekend
+  },
+  data () {
+    // 在Home.vue中的data函数中初始化数据
+    return {
+      city:'',
+      swiperList: [],
+      iconList: [],
+      hotList: [],
+      likeList: [],
+      weekendList: []
+    }
+  },
+  // 在methods中定义函数getHomeInfo()
+  methods: {
+    getHomeInfo () {
+      // getHomeInfo中使用axios请求index.json的数据，然后执行getHomeInfoSucc函数
+      axios.get('/api/index.json').then(this.getHomeInfoSucc)
+      //static目录下的文件可以在地址栏上直接访问，src目录下文件不能直接访问，
+      //但是从上线和安全角度考虑我们需要使用代理转发机制将真实的访问目录隐藏替换成api
+      //我们可以在config目录下的index.js文件里proxyTable里实现这个功能
+    },
+    getHomeInfoSucc (res) {
+      // 统一获取页面模拟的数据
+        res = res.data
+        if(res.ret && res.data){
+          // 判定res.ret返回是否真并且数据是否存在
+          const data = res.data
+          this.city = data.city
+          this.swiperList = data.swiperList
+          this.iconList = data.iconList
+          this.hotList = data.hotList
+          this.likeList = data.likeList
+          this.weekendList = data.weekendList
+        }
+      // console.log(res)
+      // getHomeInfoSucc会将获取成功的数据打印
+    }
+  },
+  // 生命周期函数mounted
+  mounted () {
+    //在生命周期中执行getHomeInfo函数
+    this.getHomeInfo()
+  }
+}
+</script>
+
+<style lang="stylus" scoped>
+</style>
 
 
 ```
+* Home.vue
+
+``` javascript
+<template>
+    <div class="wrapper">
+        <!-- 添加v-if='list.length'解决初始化空数组导致的乱序问题 -->
+      <swiper :options="swiperOption" v-if='list.length' >
+        <!-- slides -->
+        <!-- 将原来循环的swiperList 改成新的list数组 -->
+        <swiper-slide v-for='item of list' :key='item.id'>
+        <img class='swiper-img' :src='item.imgUrl' />
+        </swiper-slide>
+        <!-- Optional controls -->
+        <div class="swiper-pagination"  slot="pagination"></div>
+      </swiper>
+    </div>
+</template>
+
+<script>
+export default {
+  name: 'HomeSwiper',
+    // 指定props里接收list是数组
+  props: {
+    list: Array
+  },
+  data() {
+    return {
+      swiperOption:{
+        pagination: '.swiper-pagination',
+        loop:true 
+      }
+  // 删掉原来的data数据
+    }
+  }
+ 
+}
+</script>
+
+
+<style lang='stylus' scoped>
+  .wrapper >>> .swiper-pagination-bullet-active
+    background: #fff
+    //实现.wrapper对.swiper-pagination-bullet-active的样式穿透
+  .wrapper
+    overflow: hidden
+    width: 100%
+    height: 0
+    padding-bottom: 26.66%
+    // .wrapper实现按比例占位
+    .swiper-img
+      width: 100%
+</style>
+```
+* swiper.vue
+
+```javascript
+
+<template>
+   <div class='icons'>
+     <swiper :options="swiperOption">
+       <swiper-slide v-for='(page,index) of pages' :key='index'>
+          <div class="icon" v-for='item of page' :key='item.id'>
+            <div class='icon-img'>
+              <img class="icon-img-content"  :src="item.imgUrl" />
+            </div>
+            <p class="icons-desc">{{item.desc}}</p>
+          </div>
+       </swiper-slide>
+     </swiper>
+   </div>
+</template>
+
+<script>
+export default {
+    name: 'HomeIcons',
+    props: {
+      list: Array
+    },
+ 
+    data () {
+      return {
+        swiperOption:{
+          autoplay:false
+        }
+    //删掉iconList数组
+      }
+    },
+    computed: {
+      pages () {
+        const pages = [];
+        // 将iconList修改成list
+        this.list.forEach((item, index) => {
+          const page = Math.floor(index /8) 
+          if(!pages[page]){
+              pages[page] = []
+          }
+          pages[page].push(item)
+        })
+        return pages
+      }
+    }
+}
+</script>
+
+<style lang="stylus" scoped>
+ @import '~styles/varibles.styl'
+    .icons >>> .swiper-container
+      height: 0
+      padding-bottom: 50%
+    .icons
+      margin-top:.2rem
+     .icon
+       position: relative
+       overflow hidden
+       float: left
+       width: 25%
+       height: 0
+       padding-bottom: 25%
+       .icon-img
+         position: absolute
+         top: 0
+         left: 0
+         right: 0
+         bottom: .44rem
+         box-sizing: border-box
+         .icon-img-content
+           display: block
+           margin: 0 auto
+           height: 100% 
+       .icons-desc
+         position: absolute
+         left: 0
+         right: 0
+         bottom: 0
+         height: .44rem
+         line-height: .44rem
+         text-align: center
+         ellipsis()
+</style>
+```
+* icons.vue
+
+```javascript
+<template>
+  <div>
+      <div class="title">
+        <img class="title-img" src="http://img1.qunarzz.com/piao/fusion/1711/16/bfbb9874e8f11402.png">
+        <span class='title-left'>本周热门榜单</span>
+        <span class="title-right">全部榜单 ></span>
+        </div>
+      <div class="wrapper">
+          <swiper :options='swiperOption'>
+            <!-- hotList修改为list -->
+              <swiper-slide v-for='item of list' :key='item.id'>
+                  <div class="hot-img">
+                    <img class="hot-img-content" :src="item.imgUrl" />
+                  </div>  
+                    <p class="desc">{{item.desc}}</p>
+                    <p class="price">{{item.price}}<span>起</span></p>
+              </swiper-slide>
+          </swiper>
+      </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name:'HomeHot',
+  props: {
+    list: Array
+    // props接受list并指定类型为数组
+  },
+  data () {
+    return {
+      swiperOption: {
+        slidesPerView : 3.5,
+        centeredSlides : false
+      }
+    // 删掉hotList数组
+    }
+    }
+  }
+</script>
+
+<style lang="stylus" scoped>
+@import '~styles/varibles.styl'
+  .title
+    position relative
+    padding .2rem
+    padding-bottom -.1rem
+    .title-left
+      font-size .32rem;
+      line-height .44rem
+    .title-img
+      display: inline-block;
+      overflow: hidden;
+      width: .3rem;
+      height: .3rem;
+      vertical-align: top;
+    .title-right
+      float right
+      color: #616161;
+      font-size: .24rem;
+      line-height: .28rem;
+      position: absolute;
+      top: .36rem;
+      right: .32rem;
+  .wrapper
+    height 0
+    padding-bottom 40%
+    overflow hidden
+    width: 100%
+    .hot-img
+      overflow hidden
+      height 24%
+      margin-top -.2rem
+      .hot-img-content
+        margin .15rem
+        width: 100%
+    .desc
+      text-align center
+      font-size .24rem
+      margin-top .12rem
+      line-height: .32rem
+      color #212121
+      ellipsis()
+    .price
+      text-align center
+      color #ff8300
+      span
+        color #212121
+        font-size .24rem
+</style>
+```
+* Hot.vue
+
+```javascript
+<template>
+  <div>
+    <div class="title">
+      <img class="title-img" src="http://img1.qunarzz.com/piao/fusion/1711/89/ebc329f16c55bb02.png" />
+      <span class="title-content">猜你喜欢</span>
+    </div>
+    <ul>
+        <!-- 将likeList修改为list -->
+      <li class="item" v-for='item of list' :key='item.id'>
+        <img class="item-img" :src="item.imgUrl" >
+        <div class="item-info">
+          <p class="item-title">{{item.title}}</p>
+          <p>
+            <span class="iconfont" v-html='item.star'>{{item.star}}</span >
+            <span class="item-comment">{{item.comment}}</span>
+          </p>
+          <p class="item-price"><em>¥</em>{{item.price}}<span>起</span></p>
+          <p class="item-desc">{{item.desc}}</p>
+        </div>
+      </li>
+  
+    </ul>
+  </div>
+</template>
+
+<script>
+export default {
+  name:'HomeLiked',
+  props: {
+    list: Array
+  }
+  // 删除掉likeList数组
+}
+</script>
+
+<style lang="stylus" scoped>
+  .title
+    margin-top .2rem
+    background #eee
+    padding .2rem
+    .title-img
+      width .3rem
+      height .3rem
+      margin-top -.09rem
+    .title-content
+      margin-left: .08rem
+      height: .44rem
+      color: red
+      font-size: .32rem
+      line-height: .44rem
+  .item
+    overflow: hidden
+    display: flex
+    height: 1.9rem
+    padding-bottom 1rem
+    border-bottom 1px solid #ccc
+    .item-img
+      width: 2rem
+      height: 2rem
+      padding: .2rem
+    .item-info
+      flex 1
+      padding: .1rem
+      margin-top .3rem
+      min-width: 0
+      .item-title
+        height: .44rem
+        color: #212121
+        font-size: .32rem
+        line-height: .44rem
+        margin-bottom .1rem
+      .iconfont
+          color #ffb436
+          font-size .25rem
+      .item-comment
+            color #212121
+            margin-left .2rem
+      .item-price
+        font-size: .4rem
+        color #ffb436
+        margin-top .2rem
+        em
+          font-size: .25rem
+        span
+          color #616161
+          font-size: .25rem
+      .item-desc
+        margin-top .6rem
+        color #f55
+        font-size .24rem
+</style>
+```
+* Liked.vue
+
+```javascript
+<template>
+  <div>
+    <div class="title">周末去哪儿</div>
+    <ul>
+              <!-- 将WeekendList修改为list -->
+        <li class="item border-bottom" v-for="item of list" :key="item.id">
+          <div class="item-img-wrapper">
+            <img class="item-img" :src="item.imgUrl" >
+          </div>
+          <div class="item-info">
+            <p class="item-title">{{item.title}}</p>
+            <p class="item-desc">{{item.desc}}</p>
+          </div>
+        </li>
+    </ul> 
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Weekend',
+  props: {
+    list: Array
+  }
+  // 删掉WeekList数组
+}
+</script>
+
+<style lang="stylus" scoped>
+  @import '~styles/varibles.styl';
+  .title
+    line-height: .8rem
+    background: #eee
+    text-indent: .2rem
+  .item-img-wrapper
+    overflow: hidden
+    height: 0
+    padding-bottom: 37.09%
+    .item-img
+      width: 100%
+  .item-info
+    padding: .1rem
+    .item-title
+      line-height: .54rem
+      font-size: .32rem
+      ellipsis()
+    .item-desc
+      line-height: .4rem
+      color: #ccc
+      ellipsis()
+</style>
+```
+* Weekend.list 
