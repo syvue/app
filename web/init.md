@@ -32,8 +32,9 @@
 - [城市列表](#城市列表)
 
 <!-- /TOC -->
+# Vue项目实战开发
 
-### 安装NPM
+## 安装NPM
 
 > NPM是随同NodeJS一起安装的包管理工具。
 
@@ -47,7 +48,7 @@ npm config set registry http://registry.npm.taobao.org/
 
 ```
 
-### 创建一个代码仓库
+## 创建一个代码仓库
 
 > 使用Github或者码云创建一个新的仓库并克隆到本地桌面。
 
@@ -56,7 +57,7 @@ npm config set registry http://registry.npm.taobao.org/
   git clone xxx对应的仓库地址
 ```
 
-### 安装vue-cli 命令行工具
+## 安装vue-cli 命令行工具
 
 > Vue 提供一个官方命令行工具，可用于快速搭建但也应用。工具为现代化的前端开发工作流提供了开箱即用的构建配置。
 
@@ -142,7 +143,7 @@ Documentation can be found at https://vuejs-templates.github.io/webpack
 
 * 完成之后打开 **http://localhost:8080**
 
-### 项目目录说明
+## 项目目录说明
 
 ![](index.jpg)
 
@@ -172,7 +173,7 @@ Documentation can be found at https://vuejs-templates.github.io/webpack
 
 * README.md----项目的说明文档，markdown 格式
 
-### **.vue**单文件组件
+## **.vue**单文件组件
 > vue.js 自定义了一种.vue文件，可以把html, css, js 写到一个文件中，从而实现了对一个组件的封装， 一个.vue 文件就是一个单独的组件。由于.vue文件是Vue.js自定义的，浏览器不认识，所以需要对该文件进行解析。 在webpack构建中，需要安装vue-loader 对.vue文件进行解析。
 
 ``` html
@@ -217,7 +218,7 @@ a {
 ```
 > 在 .vue 文件中， template 中都是html 代码，它定义了在页面中显示的内容，由于里面还有变量，也可以说定义了一个模版；script中都是js 代码，它定义这个组件中所需要的数据和及其操作，style 里面是css 样式，定义这个组件的样式，scoped 表明这里写的css 样式只适用于该组件，可以限定样式的作用域。
 
-### 多页应用和单页应用
+## 多页应用和单页应用
 
 ![](page1.jpg)
 
@@ -236,7 +237,7 @@ a {
 > 利用Vue开发的应用是单页面应用，在url变化时，js会感知到，然后动态地将当前页面上的内容清除掉，再将下一个页面的内容挂载到页面上。此时，路由不是后端去做，而是由前端来做。
 > 判断页面当前应该显示哪一个组件，清除掉上一个组件，显示下一个组件。这样页面跳转就不会去请求html文件了。
 
-### Vue-Router
+## Vue-Router
 >  Vue Router 是 Vue.js 官方的路由管理器。它和 Vue.js 的核心深度集成，让构建单页面应用变得易如反掌。包含的功能有：嵌套的路由/视图表；模块化的、基于组件的路由配置；路由参数、查询、通配符；基于 Vue.js 过渡系统的视图过渡效果；细粒度的导航控制；带有自动激活的 CSS class 的链接；HTML5 历史模式或 hash 模式，在 IE9 中自动降级；自定义的滚动条行为。
 
 ``` javascript
@@ -296,9 +297,9 @@ export default new Router({
 * webpack 项目打包工具 -->
 
 
-### 项目初始化
+## 项目初始化
 
-#### 导入依赖文件
+### 导入依赖文件
 ![](init01.jpg)
 
 > 首先将border.css,reset.css和iconfont相关文件复制到assets目录下的styles目录中。
@@ -311,7 +312,7 @@ export default new Router({
   > iconfont使用我们需要先登录**https://www.iconfont.cn/** 然后注册之后搜索我们需要的图标，然后下载，再将iconfont.css 复制到styles目录下 iconfont.eot iconfont.svg iconfont.ttf iconfont.woff 这4个字体文件复制sytles/iconfont目录下，然后修改iconfont.css文件，在对应的url地址上添加./iconfont目录，修改后如下图
 ![](init02.jpg)
 
-#### 修改项目文件
+### 修改项目文件
 
 * 新建项目目录和文件
   > 在src目录下新建pages目录，pages下在新建home目录，home目录下在新建Home.vue文件
@@ -336,7 +337,7 @@ export default {
 ```
  **Home.vue** 
 
-#### 修改路由文件
+### 修改路由文件
  > 打开router目录下的index.js文件，导入刚刚新建的Home.vue文件
 
  ``` javascript
@@ -358,7 +359,7 @@ export default new Router({
 
  ``` 
 
-#### 修改入口文件
+### 修改入口文件
  > 打开main.js文件，先打开终端安装导入fastClick的组件和其他依赖包
 ``` cmd
 npm install fastclick --save
@@ -393,7 +394,7 @@ new Vue({
 })
 
 ```
-#### 修改index.html文件
+### 修改index.html文件
  >打开index.html文件，修改meta name="viewport" content="width=device-width,initial-scale=1.0"这一项，在后面添加minimum-scale=1.0,maximum-scale=1.0,user-scalable=no三项。这是为了适配手机端
 ``` html
 <!DOCTYPE html>
@@ -421,7 +422,7 @@ git commit -m 'init project'
 git push
 ```
 
-### header组件区域
+## header组件区域
 
 * 查看我们需要制作的页面。
 
@@ -512,7 +513,7 @@ export default {
 ```
 * Home.vue
 
-#### 代码优化
+### 代码优化
 
 > src/assets/styles这个目录在项目中引用了多次，那么对于使用频率很高的目录我们就需要优化其使用流程，方便我们使用。首先我们打开bulid目录下的webpack.base.conf.js文件我们找到resolve下面的alias别名这一项，然后我们添加一项新的别名。
 
@@ -547,7 +548,7 @@ $bgColor = #00bcd4
     bgackgournd: $bgColor
 </style>
 ```
-### 新建代码分支
+## 新建代码分支
 
 > 在正式的商业项目中，当开发一个新的功能模块时，都需要创建一个分支，当开完完成之后我们再将分支合并到主分支中。这个时候我们先打开github中我们的项目页面，点击Branch:Master然后创建分支。
 
@@ -572,7 +573,7 @@ $bgColor = #00bcd4
 ```
 * 切换分支之后我的编写的代码都会在新的index-swiper分支之上
 
-### 安装轮播图swiper插件
+## 安装轮播图swiper插件
 
 > 我们打开[https://github.com/surmon-china/vue-awesome-swiper](https://github.com/surmon-china/vue-awesome-swiper)这个地址查先看一下这个插件的readme说明文档。考虑到兼容性和稳定性的问题，我们采用安装2.6.7这个版本
 
@@ -681,7 +682,7 @@ export default {
 ```
 * Home.vue
 
-#### 优化轮播图
+### 优化轮播图
 
 > 在完成轮播图的基本功能之后，我们要需要继续优化代码来完善功能。我们先看代码
 
@@ -769,7 +770,7 @@ export default {
 
 ```
 
-### 完成图标区域布局
+## 完成图标区域布局
 
 * 首先我们在github上创建一个新的 index-icons分支,然后我们要切换到index-icons这个分支上。
 
@@ -884,7 +885,7 @@ export default {
 
 * Icons.vue
 
-### 图标区逻辑实现
+## 图标区逻辑实现
 
 * 实现图标区的移动我们同样要使用到swiper组件对代码进行改造，代码如下。
 
@@ -1024,8 +1025,7 @@ ellipsis()
 
 * varibles.styl
 
-<<<<<<< HEAD
-### 热榜区域实现
+## 热榜区域实现
 
 * 首先在线上仓库Github中创建新的分支，然后在本地拉取并切换新的index-Hot分支。再在components目录下创建Hot.vue文件，然后利用swiper组件实现我们要的效果，代码如下。
 
@@ -1219,7 +1219,7 @@ export default {
   git merge origin/index-hot
   # 将index-hot分支先合并到本地master分支
 ```
-### 实现猜你喜欢区域
+## 实现猜你喜欢区域
 
 * 同样的，先创建分支，在切换到分支上开始编码，代码如下。
 
