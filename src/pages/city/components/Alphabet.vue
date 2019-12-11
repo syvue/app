@@ -1,16 +1,19 @@
 <template>
   <ul class="list">
-      <li class="item">A</li>
-      <li class="item">B</li>
-      <li class="item">C</li>
-      <li class="item">D</li>
-      <li class="item">E</li>
+      <!-- 通过v-for循环 遍历传递进来的cities里的数据 -->
+      <li class="item" 
+      v-for="(item,key) of cities" 
+      :key="key">{{key}}</li>
   </ul>
 </template>
 
 <script>
 export default {
-  name: 'CityAlphabet'
+  name: 'CityAlphabet',
+  // props指定传递的数据的类型
+  props:{
+    cities: Object
+  }
 }
 </script>
 
