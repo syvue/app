@@ -21,6 +21,7 @@
           </div>
         </div>
       </div>
+      <!-- 添加ref值为key -->
       <div class="area" 
       v-for="(item, key) of cities" 
       :key='key'
@@ -47,6 +48,7 @@ import Bscroll from "better-scroll";
 export default {
   name: "CityList",
   // props种指定传入数据的类型
+  // 指定接收传入的letter数据类型为String
   props: {
     hot: Array,
     cities: Object,
@@ -56,6 +58,7 @@ export default {
   mounted() {
     this.scroll = new Bscroll(this.$refs.wrapper)
   },
+  // 通过watch监听 letter的变化，在通过scroll的方法滚动到对应的letter位置
   watch: {
     letter () {
       if (this.letter) {

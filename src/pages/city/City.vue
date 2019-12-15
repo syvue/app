@@ -2,16 +2,18 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <!-- 将axios获取的json数据传递给局部组件 -->
+    <!-- 将axios获取的json数据cities,hotCities传递给List局部组件 -->
+    <!-- 将letter参数在传递给List局部组件 -->
     <city-list :cities='cities' 
                :hot='hotCities'
                :letter='letter'
                ></city-list>
+   <!-- 将axios获取的json数据citites传递给alphabet局部组件 -->
     <city-alphabet 
                :cities='cities'
                @change='handleLetterChange'
                >
-              <!--  -->
+  <!--监听Alphabet组件里的change事件-->
                </city-alphabet>
   </div>
 </template>
@@ -32,6 +34,7 @@ export default {
     CityAlphabet
   },
   // 通过data初始化数据
+  // 初始化传递过来的letter数据
   data () {
     return {
       cities: {},
@@ -53,6 +56,7 @@ export default {
       }
       // console.log(res)
     },
+    // change事件接收传递过来的参数letter
     handleLetterChange (letter) {
       this.letter = letter
       // console.log(letter)

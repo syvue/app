@@ -30,6 +30,7 @@
 - [城市页面路由和页面跳转](#城市页面路由和页面跳转)
 - [城市搜索框](#城市搜索框)
 - [城市列表](#城市列表)
+- [字母列表功能实现](#字母列表功能实现)
 
 <!-- /TOC -->
 # Vue项目实战开发
@@ -2446,3 +2447,197 @@ export default {
 ```
 
 * City.vue
+
+### 字母列表功能实现
+
+> 我们需要实现两个功能：
+> * 单击字母来实现对应字母列表的自动跳转
+> * 通过在字母表上的拖动来实现对应列表的滚动展示
+> 实现思路:通过对应字母列表的操作绑定传递对应的参数在对相对应的事件的进行处理再来实现我们需要的功能。具体代码如下:
+
+``` javascript
+<template>
+  <ul class="list">
+      <!-- 通过v-for循环 遍历传递进来的cities里的数据 -->
+      <!-- v-for="(item,key) of cities"  -->
+      <!-- :key="key" -->
+      <li class="item" 
+      v-for="item of letters"
+      :key="item"
+      :ref='item'
+      @click="handleLetterClick"
+      @touchstart='handleTouchStart'
+      @touchmove='handleTouchMove'
+      @touchend='handleTouchEnd'
+      >
+      <!-- {{key}}</li> -->
+      {{item}}</li>
+      <!--通过click事件绑定对应的点击事件和触屏事件方法-->
+  </ul>
+</template>
+
+<script>
+export default {
+  name: 'CityAlphabet',
+  // props指定传递的数据的类型
+  props:{
+    cities: Object
+  },
+  computed: {
+    letters () {
+      const letters = []
+      for (let i in this.cities) {
+        letters.push(i)
+      }
+      return letters
+    }
+  },
+  // 初始化data数据，设定触屏状态为false
+  data () {
+    return {
+      touchStatus: false
+    }
+  },
+  // 处理点击事件和触屏事件的方法
+  methods:{
+    // 处理字母单击函数
+    handleLetterClick (e) {
+      // 通过$emit触发change事件并传入单击事件获取的参数
+      this.$emit('change',e.target.innerText)
+      // 
+      // console.log(e)
+      // console.log(e.target.innerText)
+      // 输出通过点击获取到的参数e
+    },
+    // 设定触屏开始，将状态为true
+    handleTouchStart () {
+      this.touchStatus = true
+     },
+    // 处理触屏移动事件，接受参数e
+    // startY 为获取字母A的顶点位置参数
+    // touchY 为
+    handleTouchMove (e) {
+      const startY = this.$refs['A'][0].offsetTop
+      // console.log(startY)
+      const touchY = e.touches[0].clientY - 79
+      // console.log(touchY)
+      const index = Math.floor((touchY - startY) / 20)
+      if (index >=0 &&  index < this.letters.length){
+        this.$emit('change',this.letters[index])
+      }
+      console.log(index)
+    },
+    // 触屏状态结束，将状态设为false
+    handleTouchEnd () {
+      this.touchStatus = false
+    }
+  }
+}
+</script>
+
+<style lang="stylus" scoped>
+@import '~styles/varibles.styl'
+  .list
+    display flex
+    flex-direction:column
+    justify-content:center
+    position:absolute
+    top: 1.58rem
+    right:0
+    bottom:0
+    width:.4rem
+    .item
+      text-align:center
+      line-height: .4rem
+      color $bgColor
+</style>
+
+```
+* Alphabet.vue
+
+``` javascript
+<template>
+  <div>
+    <city-header></city-header>
+    <city-search></city-search>
+    <!-- 将axios获取的json数据cities,hotCities传递给List局部组件 -->
+    <!-- 将letter参数在传递给List局部组件 -->
+    <city-list :cities='cities' 
+               :hot='hotCities'
+               :letter='letter'
+               ></city-list>
+   <!-- 将axios获取的json数据citites传递给alphabet局部组件 -->
+    <city-alphabet 
+               :cities='cities'
+               @change='handleLetterChange'
+               >
+  <!--监听Alphabet组件里的change事件-->
+               </city-alphabet>
+  </div>
+</template>
+
+<script>
+import CityHeader from './components/Header'
+import CitySearch from './components/Search'
+import CityList from './components/List'
+import CityAlphabet from './components/Alphabet'
+import axios from 'axios'
+// 导入axios
+export default {
+  name: 'City',
+  components:{
+    CityHeader,
+    CitySearch,
+    CityList,
+    CityAlphabet
+  },
+  // 通过data初始化数据
+  // 初始化传递过来的letter数据
+  data () {
+    return {
+      cities: {},
+      hotCities: [],
+      letter:''
+    }
+  },
+  // 通过getCityInfo函数获取city.json里的数据，然后传递给handleGetCityInfoSucc函数
+  methods:{
+    getCityInfo () {
+      axios.get('/api/city.json').then(this.handleGetCityInfoSucc)
+    },
+    handleGetCityInfoSucc (res) {
+      res =res.data
+      if(res.ret && res.data){
+        const data = res.data
+        this.cities = data.cities
+        this.hotCities = data.hotCities
+      }
+      // console.log(res)
+    },
+    // change事件接收传递过来的参数letter
+    handleLetterChange (letter) {
+      this.letter = letter
+      // console.log(letter)
+    }
+  },
+  // 在生命周期里调用getCityInfo函数
+  mounted () {
+    this.getCityInfo()
+  }
+}
+
+</script>
+
+<style lang="stylus" scoped>
+
+</style>
+```
+
+* City.vue
+
+``` javascript
+
+
+```
+
+* List.vue
