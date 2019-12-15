@@ -2536,20 +2536,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-@import '~styles/varibles.styl'
-  .list
-    display flex
-    flex-direction:column
-    justify-content:center
-    position:absolute
-    top: 1.58rem
-    right:0
-    bottom:0
-    width:.4rem
-    .item
-      text-align:center
-      line-height: .4rem
-      color $bgColor
+  //略
 </style>
 
 ```
@@ -2629,14 +2616,89 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-
+  // 略
 </style>
 ```
 
 * City.vue
 
 ``` javascript
+<template>
+  <div class="list" ref="wrapper">
+    <!-- 添加 ref  -->
+    <div>
+      <div class="area">
+        <div class="title border-topbottom">当前城市</div>
+        <div class="button-list">
+          <div class="button-wrapper">
+            <div class="button">北京</div>
+          </div>
+        </div>
+      </div>
+      <div class="area">
+        <div class="title border-topbottom">热门城市</div>
+        <div class="button-list">
+          <!-- 通过item循环遍历传入的数据hot -->
+          <div class="button-wrapper" 
+              v-for="item of hot" 
+              :key="item.id">
+            <div class="button">{{item.name}}</div>
+          </div>
+        </div>
+      </div>
+      <!-- 添加ref值为key -->
+      <div class="area" 
+      v-for="(item, key) of cities" 
+      :key='key'
+      :ref='key'
+      >
+        <div class="title border-topbottom">{{key}}</div>
+        <div class="item-list">
+          <div class="item border-bottom" 
+          v-for="innerItem of item"
+          :key="innerItem.id"
+          >
+          {{innerItem.name}}
+          </div>
 
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import Bscroll from "better-scroll";
+// 添加better-scroll
+export default {
+  name: "CityList",
+  // props种指定传入数据的类型
+  // 指定接收传入的letter数据类型为String
+  props: {
+    hot: Array,
+    cities: Object,
+    letter: String
+  },
+  // 添加声明周期函数并调用
+  mounted() {
+    this.scroll = new Bscroll(this.$refs.wrapper)
+  },
+  // 通过watch监听 letter的变化，在通过scroll的方法滚动到对应的letter位置
+  watch: {
+    letter () {
+      if (this.letter) {
+        const element = this.$refs[this.letter][0]
+        // console.log(element)
+        this.scroll.scrollToElement(element)
+      }
+    }
+  }
+}
+</script>
+
+<style lang="stylus" scoped>
+  // 略
+</style>
 
 ```
 
