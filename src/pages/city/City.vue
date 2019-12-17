@@ -1,7 +1,8 @@
 <template>
   <div>
     <city-header></city-header>
-    <city-search></city-search>
+    <!-- 往search组件里传递cities数据 -->
+    <city-search :cities='cities'></city-search>
     <!-- 将axios获取的json数据cities,hotCities传递给List局部组件 -->
     <!-- 将letter参数在传递给List局部组件 -->
     <city-list :cities='cities' 

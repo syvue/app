@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import Bscroll from "better-scroll";
+import Bscroll from "better-scroll"
 // 添加better-scroll
 export default {
   name: "CityList",
