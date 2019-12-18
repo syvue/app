@@ -6,7 +6,8 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">北京</div>
+            <!-- <div class="button">北京</div> -->
+            <div class="button">{{this.$store.state.city}}</div>
           </div>
         </div>
       </div>
@@ -14,9 +15,12 @@
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
           <!-- 通过item循环遍历传入的数据hot -->
+          <!-- 在使用vuex时添加handleCityClick函数 -->
           <div class="button-wrapper" 
-              v-for="item of hot" 
-              :key="item.id">
+               v-for="item of hot" 
+               :key="item.id"
+               @click='handleCityClick(item.name)'
+            >
             <div class="button">{{item.name}}</div>
           </div>
         </div>
@@ -29,9 +33,11 @@
       >
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
+           <!-- 在使用vuex时添加click事件绑定handleCityClick函数 -->
           <div class="item border-bottom" 
           v-for="innerItem of item"
           :key="innerItem.id"
+          @click='handleCityClick(innerItem.name)'
           >
           {{innerItem.name}}
           </div>
@@ -54,9 +60,22 @@ export default {
     cities: Object,
     letter: String
   },
+  // 添加hanleCityClick函数
+  methods:{
+    // handleCityClick函数实现的时点击城市时将获取的城市通过dispatch方法传递给Actions下的changeCity方法
+  //  添加路由跳转到首页
+   handleCityClick (city) {
+      this.$store.dispatch('changeCity',city)
+      this.$router.push('/')
+      // console.log(city)
+  
+    }
+  },
+
   // 添加声明周期函数并调用
+  // better-scroll默认会关闭click事件，我们需要单独开启click事件
   mounted() {
-    this.scroll = new Bscroll(this.$refs.wrapper)
+    this.scroll = new Bscroll(this.$refs.wrapper,{click: true})
   },
   // 通过watch监听 letter的变化，在通过scroll的方法滚动到对应的letter位置
   watch: {

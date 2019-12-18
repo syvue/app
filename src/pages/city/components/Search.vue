@@ -17,10 +17,12 @@
       >
           <ul>
             <!-- 通过v-for将搜索结果list遍历展示出来 -->
+             <!-- 在使用vuex时添加Click事件绑定handleCityClick函数 -->
             <li 
               v-for="item of list"
               :key='item.id'
               class="search-item border-bottom"
+              @click='handleCityClick(item.name)'
               >
               {{item.name}}
               </li>
@@ -64,6 +66,17 @@ export default {
       return !this.list.length
     }
   },
+    // 添加hanleCityClick函数
+  methods:{
+    // handleCityClick函数实现的时点击城市时将获取的城市通过dispatch方法传递给Actions下的changeCity方法
+    // 添加router跳转到首页‘/’
+    handleCityClick (city) {
+      this.$store.dispatch('changeCity',city)
+      this.$router.push('/')
+      // console.log(city)
+  
+    }
+  },
   // 添加watch监听keyword函数
   watch:{
     keyword () {
@@ -99,8 +112,9 @@ export default {
     }
   },
   // 添加生命周期函数mounted
+   // better-scroll默认会关闭click事件，我们需要单独开启click事件
   mounted () {
-    this.scroll =new Bscroll(this.$refs.search)
+    this.scroll =new Bscroll(this.$refs.search,{click: true})
   }
 
 }

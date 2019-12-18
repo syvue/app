@@ -10,7 +10,10 @@
         <!-- 使用router-link标签包裹header-right标签并制定路由跳转到'/city'-->
         <router-link to='/city'>
             <div class="header-right">
-                {{this.city}}
+              <!--  -->
+                <!-- {{this.city}} -->
+                <!-- 使用vuex中的state里公用数据 -->
+                {{this.$store.state.city}}
                 <!-- 传入城市的名称 -->
                 <span class="iconfont arrow-icon">&#xe6aa;</span>
             </div>
@@ -20,11 +23,12 @@
 
 <script>
 export default {
-  name: 'HomeHeader',
-  props: {
-    city: String
-    // 通过props指定接受数据的类型，city必须是String字符串类型
-  }
+  name: 'HomeHeader'
+  // 使用vuex后就不在需要外部传递的city
+  // props: {
+  //   city: String
+  //   // 通过props指定接受数据的类型，city必须是String字符串类型
+  // }
 }
 </script>
 

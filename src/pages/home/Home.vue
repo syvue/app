@@ -1,7 +1,9 @@
 <template>
      <div>
                         <!-- 通过绑定city属性来传值 -->
-         <home-header :city='city'></home-header>
+                        <!-- 使用vuex之后就不需要从外部传递数据了 -->
+         <!-- <home-header :city='city'></home-header> -->
+        <home-header></home-header>        
                       <!-- 绑定list来传递swiperList数据-->
          <home-swiper :list='swiperList'></home-swiper>
          <home-icons :list="iconList"></home-icons>
@@ -32,7 +34,8 @@ export default {
   },
   data () {
     return {
-      city:'',
+      // 使用vuex后不再需要city
+      // city:'',
       swiperList: [],
       iconList: [],
       hotList: [],
@@ -55,7 +58,8 @@ export default {
         if(res.ret && res.data){
           // 判定res.ret返回是否真并且数据是否存在
           const data = res.data
-          this.city = data.city
+          // 使用vuex后就不需要在传递city数据
+          // this.city = data.city
           this.swiperList = data.swiperList
           this.iconList = data.iconList
           this.hotList = data.hotList

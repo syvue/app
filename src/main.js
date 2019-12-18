@@ -27,7 +27,7 @@ new Vue({
   el: '#app',
   router,
   store,
-  // 在vue中使用store，而
+  // 在vue中使用store，而store代表就是vuex
   components: { App },
   template: '<App/>'
 })
